@@ -206,7 +206,7 @@ const SalesSection = () => {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="Where are you looking?"
+            placeholder={"Where are you looking?"}
             className="mt-2 ml-2 bg-transparent outline-none w-40"
           />
 
