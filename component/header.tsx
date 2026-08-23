@@ -171,7 +171,7 @@ export default function Header() {
 
             <li className="pt-2">
               <Link
-                href="/list-property"
+                href="/listproperty"
                 onClick={closeMenu}
                 className="block rounded-md bg-[#F4B942] px-4 py-3 text-center text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
               >
