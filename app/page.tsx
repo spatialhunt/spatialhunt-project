@@ -4,6 +4,7 @@ import Showcase from "@/component/home/showcase";
 import Showsection from '@/component/home/show';
 import SalesSection from '@/component/home/sales';
 import HowItWorks from '@/component/home/howitworks';
+import FeatureProperties from '@/component/home/features';
 
 const page = () => {
   return (
@@ -12,6 +13,7 @@ const page = () => {
       <Showsection />
       <SalesSection />
       <HowItWorks />
+      <FeatureProperties />
     </div>
   )
 }
