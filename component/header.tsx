@@ -26,7 +26,7 @@ export default function Header() {
         />
 
         <h1 className="font-manrope">
-          <span className="text-[#F4B942]">SPACIAL</span>
+          <span className="text-[#F4B942]">SPATIAL</span>
           <span className="text-[#1E5A4F]">HUNT</span>
         </h1>
       </Link>
@@ -79,7 +79,7 @@ export default function Header() {
 
           <li>
             <Link
-              href="/list-property"
+              href="/listproperty"
               className="rounded-md bg-[#F4B942] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
             >
               List Your Property

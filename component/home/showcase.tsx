@@ -34,7 +34,7 @@ const Showcase = () => {
             </button>
             </Link>
 
-            <Link href="/list-property">
+            <Link href="/listproperty">
            <button className="rounded-[0.5rem] border border-[#F4B940] bg-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-[#F4B940] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base">
             List Your Property
             </button>
