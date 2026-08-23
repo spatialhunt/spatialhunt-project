@@ -98,7 +98,6 @@ const SalesSection = () => {
             <option>Apartment</option>
             <option>House</option>
             <option>Duplex</option>
-            <option>Land</option>
           </select>
 
 
@@ -206,7 +205,7 @@ const SalesSection = () => {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder={"Where are you looking?"}
+            placeholder="Where are you looking?"
             className="mt-2 ml-2 bg-transparent outline-none w-40"
           />
 
@@ -223,7 +222,6 @@ const SalesSection = () => {
               <option>Apartment</option>
               <option>House</option>
               <option>Duplex</option>
-              <option>Land</option>
             </select>
 
             <img
