@@ -3,6 +3,7 @@ import Header from '@/component/header'
 import Showcase from "@/component/home/showcase";
 import Showsection from '@/component/home/show';
 import SalesSection from '@/component/home/sales';
+import HowItWorks from '@/component/home/howitworks';
 
 const page = () => {
   return (
@@ -10,6 +11,7 @@ const page = () => {
       <Showcase />
       <Showsection />
       <SalesSection />
+      <HowItWorks />
     </div>
   )
 }
