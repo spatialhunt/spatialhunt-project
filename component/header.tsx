@@ -12,7 +12,7 @@ export default function Header() {
   };
 
   const navLinkStyles =
-    "rounded-md px-3 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]";
+    "rounded-md font-bold px-3 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]";
 
   return (
     <header className="relative z-50 mx-5 flex items-center justify-between md:mx-12">
@@ -38,7 +38,7 @@ export default function Header() {
           <li>
             <Link
               href="/"
-              className="px-3 py-2 text-[#F4B942] transition-all duration-200 hover:bg-[#C58D16] hover:text-[#1E5A4F] underline"
+              className="font-bold px-3 py-2 text-[#F4B942] transition-all duration-200 hover:bg-[#C58D16] hover:text-[#1E5A4F] underline"
             >
               Home
             </Link>
