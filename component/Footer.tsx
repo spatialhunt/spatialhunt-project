@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="bg-[#1E5A4FB2] px-8 py-5 text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-4">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-4 p-1">
         {/* Brand */}
         <div className="w-full md:w-[243px] md:min-w-0">
           <Image
