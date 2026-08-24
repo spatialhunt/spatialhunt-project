@@ -3,11 +3,12 @@ import Link from "next/link";
 
 const Showcase = () => {
   return (
-    <section className="mx-5 mt-8 flex flex-col-reverse gap-8 md:mx-8 md:mt-12 md:flex-row md:items-center md:justify-between lg:mx-12">
-      
+    <section className="mx-5 mt-8 flex flex-col-reverse gap-8 md:mx-8 md:mt-12 md:flex-row md:items-center md:justify-between lg:mx-auto lg:w-[92%] xl:w-[90%]">
+
       {/* Text Content */}
-      <div className="flex w-full flex-col md:w-1/2">
-        <h1 className="text-center text-3xl font-bold leading-tight text-[#2E2E2E]  md:text-5xl md:text-start">
+      <div className="flex w-full flex-col md:w-1/2 lg:w-[48%]">
+
+        <h1 className="text-center text-3xl font-bold leading-tight text-[#2E2E2E] md:text-5xl md:text-start">
           Verified Homes.
         </h1>
 
@@ -28,28 +29,29 @@ const Showcase = () => {
 
         {/* Buttons */}
         <div className="mt-6 flex flex-wrap ml-10 md:ml-0 gap-20 md:gap-3">
-            <Link href="/properties">
+          <Link href="/properties">
             <button className="rounded-[0.5rem] bg-[#F4B940] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base">
               Find a Home
             </button>
-            </Link>
+          </Link>
 
-            <Link href="/listproperty">
-           <button className="rounded-[0.5rem] border border-[#F4B940] bg-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-[#F4B940] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base">
-            List Your Property
+          <Link href="/listproperty">
+            <button className="rounded-[0.5rem] border border-[#F4B940] bg-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-[#F4B940] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base">
+              List Your Property
             </button>
-            </Link>
+          </Link>
         </div>
       </div>
 
       {/* Showcase Image */}
-      <div className="flex w-full justify-center md:w-1/2 md:justify-end">
+      <div className="flex w-full justify-center md:w-1/2 md:justify-end lg:w-[48%]">
         <img
           src="/showcase.svg"
           alt="SpatialHunt property showcase"
-          className="h-auto w-full max-w-647px object-contain"
+          className="h-auto w-full max-w-[647px] object-contain lg:max-w-[600px] xl:max-w-[647px]"
         />
       </div>
+
     </section>
   );
 };
