@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/component/header";
 import Showcase from "@/component/home/showcase";
 import Showsection from '@/component/home/show';
 import SalesSection from '@/component/home/sales';
@@ -13,8 +11,7 @@ import Testimony from '@/component/home/testimony';
 const Page = () => {
   return (
     <>
-      <Header />
-      <main>
+      <div>
         <Showcase />
         <Showsection />
         <SalesSection />
@@ -23,8 +20,8 @@ const Page = () => {
         <Features2 />
         <LandLord />
         <Testimony />
-      </main>
-      <Footer />
+      </div>
+      
     </>
   )
 }

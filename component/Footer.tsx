@@ -4,15 +4,15 @@ function Footer() {
   return (
     <footer className="bg-[#1E5A4FB2] px-8 py-5 text-white">
       {/* Main Footer Content */}
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-4">
         {/* Brand */}
-        <div className="w-full md:w-[243px] md:shrink-0">
+        <div className="w-full md:w-[243px] md:min-w-0">
           <Image
             src="/SH.svg"
             alt="SpatialHunt"
             width={243}
             height={78}
-            className="h-auto w-[243px]"
+            className="h-auto w-full lg:w-[243px]"
           />
 
           <p className="text-base font-medium leading-6">
@@ -22,7 +22,7 @@ function Footer() {
         </div>
 
         {/* Quick Links */}
-        <div className="w-full md:w-[98px] md:shrink-0">
+        <div className="w-full md:w-[98px] md:min-w-0">
           <h3 className="text-base font-bold leading-6">
             Quick Links
           </h3>
@@ -37,7 +37,7 @@ function Footer() {
         </div>
 
         {/* For Landlords */}
-        <div className="w-full md:w-[133px] md:shrink-0">
+        <div className="w-full md:w-[98px] md:min-w-0">
           <h3 className="text-base font-bold leading-6">
             For Landlords
           </h3>
@@ -51,7 +51,7 @@ function Footer() {
         </div>
 
         {/* Support */}
-        <div className="w-full md:w-[124px] md:shrink-0">
+        <div className="w-full md:w-[124px] md:min-w-0">
           <h3 className="text-base font-bold leading-6">
             Support
           </h3>
@@ -65,7 +65,7 @@ function Footer() {
         </div>
 
         {/* Contact Us */}
-        <div className="w-full md:w-[208px] md:shrink-0">
+        <div className="w-full md:w-[208px] md:min-w-0">
           <h3 className="text-base font-bold leading-6">
             Contact Us
           </h3>
@@ -104,7 +104,7 @@ function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="w-full md:w-[305px] md:shrink-0">
+        <div className="w-full md:w-[305px] md:min-w-0">
           <h3 className="text-base font-bold leading-6">
             Subscribe to our newsletter
           </h3>
@@ -181,12 +181,18 @@ function Footer() {
           height={24}
         />
 
-        <Image
-          src="/instagram.svg"
-          alt="Instagram"
-          width={24}
-          height={24}
-        />
+        <a
+          href="https://www.instagram.com/thespatialhunt?utm_source=qr&igsh=MWpiNGM3em1kbXoweg=="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Image
+            src="/instagram.svg"
+            alt="Instagram"
+            width={24}
+            height={24}
+          />
+        </a>
 
         <Image
           src="/linkedin.svg"
