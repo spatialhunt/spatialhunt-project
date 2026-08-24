@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import Footer from "@/component/Footer";
+import "./globals.css";
 import Header from "@/component/header";
 import "./globals.css";
 
@@ -20,11 +20,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+<<<<<<< HEAD
     <html lang="en">
       <body className={`${manrope.className} min-h-full`}>
         <Header />
         {children}
         <Footer />
+=======
+    <html
+      lang="en"
+      className={`${manrope.variable} h-full antialiased`}
+    >
+      <body className="min-h-full flex flex-col">
+        <Header />
+        {children}
+>>>>>>> 2247494f13197d909e2106b0135957be7557c7b1
       </body>
     </html>
   );

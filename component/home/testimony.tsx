@@ -3,6 +3,7 @@ import React from 'react'
 const Testimony = () => {
   return (
     <section className="bg-[#D9D9D9] p-4">
+
       {/* titles */}
       <h1 className="pt-4 pl-0 text-center text-xl font-bold text-[#1E5A4F] md:pl-8 md:text-left md:text-2xl">
         WHAT OUR USERS SAY
@@ -13,24 +14,26 @@ const Testimony = () => {
       </h1>
 
       {/* flex images */}
-      <div className="flex flex-col items-center gap-5 px-1 py-5 md:flex-row md:gap-6 md:px-3">
+      <div className="flex flex-col items-center gap-5 px-1 py-5 md:flex-row md:gap-6 md:px-3 lg:justify-between lg:gap-8 lg:px-8">
+
         <img
           src="./testimony1.svg"
           alt="testimony1"
-          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px]"
+          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px] lg:w-[31%] lg:max-w-none"
         />
 
         <img
           src="./testimony2.svg"
           alt="testimony2"
-          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px]"
+          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px] lg:w-[31%] lg:max-w-none"
         />
 
         <img
           src="./testimony3.svg"
           alt="testimony3"
-          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px]"
+          className="h-auto w-full max-w-[385px] md:h-[186px] md:w-[385px] lg:w-[31%] lg:max-w-none"
         />
+
       </div>
     </section>
   )

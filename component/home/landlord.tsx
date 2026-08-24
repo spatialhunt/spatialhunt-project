@@ -3,24 +3,24 @@ import Link from 'next/link'
 
 const LandLord = () => {
   return (
-    <section className="mx-5 mt-0 flex flex-col gap-8 md:flex-row md:justify-between md:gap-12">
+    <section className="mx-5 mt-0 flex flex-col gap-8 md:flex-row md:justify-between md:gap-12 lg:mx-10 lg:items-center lg:gap-8">
 
       {/* flex 1 */}
-      <div className="flex w-full justify-center md:w-1/3 md:justify-start">
+      <div className="flex w-full justify-center md:w-1/3 md:justify-start lg:w-[34%]">
         <img
           src="./landlordimg.svg"
           alt="landlord-img"
-          className="h-auto w-full max-w-[400px] md:h-[304px] md:w-[457px]"
+          className="h-auto w-full max-w-[400px] md:h-[304px] md:w-[457px] lg:w-[460px]"
         />
       </div>
 
       {/* flex 2 */}
-      <div className="flex w-full flex-col text-center md:w-1/3 md:text-left">
+      <div className="flex w-full flex-col text-center md:w-1/3 md:text-left lg:w-[32%]">
         <p className="pt-2 font-bold text-[#1E5A4F] md:pt-6">
           ARE YOU A LANDLORD?
         </p>
 
-        <h1 className="pt-3 pb-3 text-xl font-bold text-[#2E2E2E] md:pt-4 md:text-2xl">
+        <h1 className="pb-3 pt-3 text-xl font-bold text-[#2E2E2E] md:pt-4 md:text-2xl">
           List your Property and get quality tenants faster
         </h1>
 
@@ -42,11 +42,11 @@ const LandLord = () => {
       </div>
 
       {/* flex 3 */}
-      <div className="flex w-full justify-center md:w-1/3 md:justify-start">
+      <div className="flex w-full justify-center md:w-1/3 md:justify-start lg:w-[34%] lg:justify-end">
         <img
           src="./landlord2.svg"
           alt="landlord2-img"
-          className="h-auto w-full max-w-[400px] md:h-[298px] md:w-[500px]"
+          className="h-auto w-full max-w-[400px] md:h-[298px] md:w-[500px] lg:w-[480px]"
         />
       </div>
 
