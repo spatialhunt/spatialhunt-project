@@ -35,7 +35,7 @@ const SalesSection = () => {
   };
 
   return (
-    <section className="bg-[#D9D9D9] mt-10 p-10">
+    <section className="bg-[#D9D9D9] mt-10 p-10 lg:px-12 xl:px-16">
 
       {/* ================= MOBILE ================= */}
       <div className="md:hidden">
@@ -152,7 +152,7 @@ const SalesSection = () => {
       <div className="hidden md:block">
 
         {/* Rent / Sale */}
-        <div className="flex gap-40">
+        <div className="flex gap-40 lg:gap-32 xl:gap-40">
 
           <Link
             href="/properties?purpose=rent"
@@ -176,15 +176,15 @@ const SalesSection = () => {
 
           <h1>Location</h1>
 
-          <h1 className="ml-65">
+          <h1 className="ml-65 lg:ml-[235px] xl:ml-65">
             Property type
           </h1>
 
-          <h1 className="ml-30">
+          <h1 className="ml-30 lg:ml-24 xl:ml-30">
             Price Range
           </h1>
 
-          <h1 className="ml-30">
+          <h1 className="ml-30 lg:ml-24 xl:ml-30">
             Bedrooms
           </h1>
 
@@ -211,7 +211,7 @@ const SalesSection = () => {
 
 
           {/* Property Type */}
-          <div className="relative ml-27 mt-2">
+          <div className="relative ml-27 lg:ml-20 xl:ml-27 mt-2">
 
             <select
               value={propertyType}
@@ -234,7 +234,7 @@ const SalesSection = () => {
 
 
           {/* Price Range */}
-          <div className="relative ml-14 mt-2">
+          <div className="relative ml-14 lg:ml-10 xl:ml-14 mt-2">
 
             <select
               value={priceRange}
@@ -257,7 +257,7 @@ const SalesSection = () => {
 
 
           {/* Bedrooms */}
-          <div className="relative ml-14 mt-2">
+          <div className="relative ml-14 lg:ml-10 xl:ml-14 mt-2">
 
             <select
               value={bedrooms}
@@ -283,7 +283,7 @@ const SalesSection = () => {
           {/* Search */}
           <button
             onClick={handleSearch}
-            className="rounded-[0.5rem] bg-[#F4B940] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base ml-22 mb-1"
+            className="rounded-[0.5rem] bg-[#F4B940] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:opacity-90 sm:px-5 sm:py-3 sm:text-base ml-22 lg:ml-14 xl:ml-22 mb-1"
           >
             Search Properties
           </button>

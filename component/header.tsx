@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./header.module.css";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,14 +14,14 @@ export default function Header() {
     "rounded-md font-bold px-3 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]";
 
   return (
-    <header className="relative z-50 mx-5 flex items-center justify-between md:mx-12">
-      
+    <header className="relative z-50 mx-5 flex items-center justify-between md:mx-12 lg:mx-auto lg:w-[92%] xl:w-[90%]">
+
       {/* Logo */}
       <Link href="/" className="flex items-center">
         <img
           src="/SH-LOGO.svg"
           alt="SpatialHunt logo"
-          className={styles.logo}
+          className="h-[65px] w-[53px] md:h-[90px] md:w-[73px]"
         />
 
         <h1 className="font-manrope">
@@ -33,12 +32,12 @@ export default function Header() {
 
       {/* Desktop Navigation */}
       <nav className="hidden md:block">
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-8 lg:gap-6 xl:gap-8">
 
           <li>
             <Link
               href="/"
-              className="font-bold px-3 py-2 text-[#F4B942] transition-all duration-200 hover:bg-[#C58D16] hover:text-[#1E5A4F] underline"
+              className="font-bold px-3 py-2 text-[#F4B942] underline transition-all duration-200 hover:bg-[#C58D16] hover:text-[#1E5A4F]"
             >
               Home
             </Link>
@@ -51,12 +50,12 @@ export default function Header() {
           </li>
 
           <li>
-            <a
-              href="#howitworks"
+            <Link
+              href="/#howitworks"
               className={navLinkStyles}
             >
               How it works
-            </a>
+            </Link>
           </li>
 
           <li>
@@ -80,7 +79,7 @@ export default function Header() {
           <li>
             <Link
               href="/listproperty"
-              className="rounded-md bg-[#F4B942] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
+              className="rounded-md bg-[#F4B940] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
             >
               List Your Property
             </Link>
@@ -130,13 +129,13 @@ export default function Header() {
             </li>
 
             <li>
-              <a
-                href="#howitworks"
+              <Link
+                href="/#howitworks"
                 onClick={closeMenu}
                 className="block rounded-md px-4 py-3 text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]"
               >
                 How it works
-              </a>
+              </Link>
             </li>
 
             <li>
@@ -173,7 +172,7 @@ export default function Header() {
               <Link
                 href="/listproperty"
                 onClick={closeMenu}
-                className="block rounded-md bg-[#F4B942] px-4 py-3 text-center text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
+                className="block rounded-md bg-[#F4B940] px-4 py-3 text-center text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
               >
                 List Your Property
               </Link>
@@ -182,6 +181,7 @@ export default function Header() {
           </ul>
         </nav>
       )}
+
     </header>
   );
 }
