@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
 import Header from "@/component/header";
+import Footer from "@/component/footer";
+import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -13,15 +14,17 @@ export const metadata: Metadata = {
   description: "Find the perfect space with SpatialHunt",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
+    <html lang="en">
+      <body className={`${manrope.className} min-h-full`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
