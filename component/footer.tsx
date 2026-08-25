@@ -195,20 +195,14 @@ function Footer() {
         </a>
 
         <Image
-          src="/tiktok.svg"
-          alt="TikTok"
+          src="/linkedin.svg"
+          alt="LinkedIn"
           width={24}
           height={24}
         />
 
         <Image
-          src="/x.svg"
-          alt="Twitter"
-          width={24}
-          height={24}
-        />
-        <Image
-          src="/youtubeicon.svg"
+          src="/icon youtube.svg"
           alt="YouTube"
           width={24}
           height={24}
