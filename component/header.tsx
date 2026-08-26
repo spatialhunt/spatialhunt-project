@@ -191,7 +191,7 @@ export default function Header() {
             {/* How it works */}
             <li>
               <Link
-                href="/#howitworks"
+                href="/howitworks"
                 onClick={closeMenu}
                 className="block rounded-md px-4 py-3 font-bold text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]"
               >
