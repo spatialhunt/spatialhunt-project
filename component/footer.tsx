@@ -194,19 +194,24 @@ function Footer() {
           />
         </a>
 
-        <Image
-          src="/linkedin.svg"
-          alt="LinkedIn"
+      <a href="https://www.tiktok.com/@spatialhunt">
+      <Image
+          src="/tiktok.svg"
+          alt="tiktok"
           width={24}
           height={24}
         />
-
-        <Image
-          src="/icon youtube.svg"
-          alt="YouTube"
+      </a>
+        
+        <a href="https://x.com/thespatialhunt">
+          <Image
+          src="/x.svg"
+          alt="xicon"
           width={24}
           height={24}
         />
+        </a>
+        
       </div>
 
       {/* Divider */}
