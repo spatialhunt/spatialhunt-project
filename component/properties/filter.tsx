@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const SalesSection = () => {
+const Filter = () => {
   const router = useRouter();
 
   const [location, setLocation] = useState("");
@@ -11,29 +11,29 @@ const SalesSection = () => {
   const [priceRange, setPriceRange] = useState("Any Price");
   const [bedrooms, setBedrooms] = useState("Any");
 
-  const handleSearch = () => {
-    const params = new URLSearchParams();
+ const handleSearch = () => {
+  const params = new URLSearchParams();
 
-    if (location.trim()) {
-      params.set("location", location.trim());
-    }
+  if (location.trim()) {
+    params.set("location", location.trim());
+  }
 
-    if (propertyType !== "All Types") {
-      params.set("type", propertyType);
-    }
+  if (propertyType !== "All Types") {
+    params.set("propertyType", propertyType);
+  }
 
-    if (priceRange !== "Any Price") {
-      params.set("price", priceRange);
-    }
+  if (priceRange !== "Any Price") {
+    params.set("priceRange", priceRange);
+  }
 
-    if (bedrooms !== "Any") {
-      params.set("bedrooms", bedrooms);
-    }
+  if (bedrooms !== "Any") {
+    params.set("bedrooms", bedrooms);
+  }
 
-    const query = params.toString();
+  const query = params.toString();
 
-    router.push(query ? `/properties?${query}` : "/properties");
-  };
+  router.push(query ? `/properties?${query}` : "/properties");
+};
 
   return (
     <section className="w-full px-4 py-6 sm:px-6 sm:py-8 md:px-8 lg:px-10 xl:px-16">
@@ -411,7 +411,7 @@ const SalesSection = () => {
             <button
               type="button"
               onClick={handleSearch}
-              className="flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#1E5A4F] px-6 text-sm font-medium text-white transition hover:opacity-90 xl:px-7"
+              className="flex h-11 shrink-0 items-center justify-center gap-2 rounded-lg bg-[#1E5A4F] px-7 text-sm font-medium text-white transition hover:opacity-90 xl:px-7"
             >
               <img
                 src="/filtericon.svg"
@@ -428,4 +428,4 @@ const SalesSection = () => {
   );
 };
 
-export default SalesSection;
+export default Filter;

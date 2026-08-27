@@ -7,14 +7,32 @@ export default function AllSearch() {
   const searchParams = useSearchParams();
   const currentPurpose = searchParams.get("purpose");
 
+  const clearAllHref = "/properties";
+
   return (
     <section className="mx-auto mb-5 w-full max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12">
 
-      {/* ================= RECENT SEARCH ================= */}
+      {/* ================= RECENT SEARCH HEADER ================= */}
+
+      <div className="mb-4 flex w-full items-center justify-between">
+
+        <h2 className="text-sm font-semibold text-[#2E2E2E] sm:text-base">
+          Recent Search
+        </h2>
+
+        <Link
+          href={clearAllHref}
+          className="text-xs font-medium text-[#1E5A4F] transition-colors hover:text-[#F4B942] sm:text-sm"
+        >
+          Clear All
+        </Link>
+
+      </div>
+
+
+      {/* ================= PROPERTY FILTER TABS ================= */}
 
       <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-
-        {/* PROPERTY FILTER TABS */}
 
         <div className="flex flex-wrap items-center gap-2 sm:gap-3">
 
@@ -105,9 +123,6 @@ export default function AllSearch() {
         </button>
 
       </div>
-
-
-
 
     </section>
   );

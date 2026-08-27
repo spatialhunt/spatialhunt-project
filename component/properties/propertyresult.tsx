@@ -76,7 +76,7 @@ const PropertyResults = () => {
 
       {/* ================= PROPERTY CARDS ================= */}
 
-      <div className="flex w-full flex-col gap-3 sm:gap-4">
+      <div className="flex w-full flex-col gap-1.5 sm:gap-2">
 
         {properties.map((property) => (
           <PropertyCard

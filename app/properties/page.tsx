@@ -1,9 +1,10 @@
 import React from "react";
 import Hero from "@/component/properties/hero";
-import SalesSection from "@/component/properties/search";
+import Filter from "@/component/properties/filter";
 import AllSearch from "@/component/properties/allsearch";
 import RefineSearch from "@/component/properties/refinesearch";
 import PropertyResults from "@/component/properties/propertyresult";
+import Aside from "@/component/properties/aside";
 
 const Properties = () => {
   return (
@@ -11,7 +12,7 @@ const Properties = () => {
       {/* ================= HERO ================= */}
       <Hero />
       {/* ================= SEARCH ================= */}
-      <SalesSection />
+      <Filter />
       {/* ================= RECENT SEARCH ================= */}
       <AllSearch />
       {/* ================= PROPERTY CONTENT ================= */}
@@ -53,45 +54,9 @@ const Properties = () => {
           </div>
 
 
-          {/* ================= RIGHT SIDEBAR ================= */}
+   {/* ================= RIGHT SIDEBAR ================= */}
 
-          <aside
-            className="
-              w-full
-              shrink-0
-
-              lg:w-[205px]
-
-              xl:w-[225px]
-            "
-          >
-
-            {/* ================= WHY CHOOSE ================= */}
-
-            <div className="rounded-[10px] bg-[#F7F7F7] p-4 sm:p-5">
-
-              <h2 className="text-base font-semibold text-[#1E5A4F] xl:text-lg">
-                Why Choose SpatialHunt?
-              </h2>
-
-              {/* Your Why Choose content goes here */}
-
-            </div>
-
-
-            {/* ================= DID YOU KNOW ================= */}
-
-            <div className="mt-5 rounded-[10px] bg-[#F7F7F7] p-4 sm:p-5">
-
-              <h2 className="text-base font-semibold text-[#2E2E2E] xl:text-lg">
-                Did You Know?
-              </h2>
-
-              {/* Your Did You Know content goes here */}
-
-            </div>
-
-          </aside>
+<Aside />
 
         </div>
 
