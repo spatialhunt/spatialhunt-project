@@ -28,9 +28,9 @@ function Footer() {
           </h3>
 
           <div className="mt-1 flex w-[97px] flex-col text-base font-medium leading-6">
-            <a href="/properties">Properties</a>
-            <a href="/HowItWorks">How It Works</a>
-            <a href="/about">About Us</a>
+            <a href="#">Properties</a>
+            <a href="#">How It Works</a>
+            <a href="#">About Us</a>
             <a href="#">Resources</a>
             <a href="#">Contact Us</a>
           </div>
