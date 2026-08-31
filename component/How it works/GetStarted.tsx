@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function GetStarted() {
   return (
     <section className="w-full px-6 py-6">
-      <div className="mx-auto flex max-w-[1128px] items-center justify-between rounded-[8px] border border-[#D9E2DE] bg-white px-8 py-2 md:flex-row md:justify-between">
+      <div className="mx-auto flex max-w-[1128px] flex-col items-center gap-5 rounded-[8px] border border-[#D9E2DE] bg-white px-6 py-6 text-center md:flex-row md:items-center md:justify-between md:gap-0 md:px-8 md:py-2 md:text-left">
         
         {/* Property Image */}
         <div className="shrink-0">
@@ -17,24 +17,24 @@ export default function GetStarted() {
         </div>
 
         {/* Text */}
-        <div className="ml-8 flex-1">
+        <div className="flex-1 md:ml-8">
           <h2 className="text-[14px] font-semibold leading-5 text-[#333333]">
             Ready to get started?
           </h2>
 
-          <p className="mt-1 max-w-[390px] text-[9px] leading-[14px] text-[#666666]">
+          <p className="mt-1 max-w-[390px] text-[9px] leading-[14px] text-[#666666] mx-auto md:mx-0">
             Join thousands of Nigerians enjoying a better way to rent and
             manage properties with trust, transparency and confidence.
           </p>
         </div>
 
         {/* Buttons */}
-        <div className="flex shrink-0 items-center gap-5">
+        <div className="flex w-full shrink-0 flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-5">
           
           {/* Find a Home */}
           <button
             type="button"
-            className="flex h-[34px] items-center gap-2 rounded-[7px] bg-[#1E5A4F] px-4 text-[11px] font-medium text-white transition hover:bg-[#17483F]"
+            className="flex h-[34px] w-full items-center justify-center gap-2 rounded-[7px] bg-[#1E5A4F] px-4 text-[11px] font-medium text-white transition hover:bg-[#17483F] sm:w-auto"
           >
             <Image
               src="/ci_house-02.svg"
@@ -50,7 +50,7 @@ export default function GetStarted() {
           {/* List Your Property */}
           <button
             type="button"
-            className="flex h-[34px] items-center gap-2 rounded-[7px] bg-[#F4B942] px-4 text-[11px] font-medium text-[#333333] transition hover:bg-[#E5AA32]"
+            className="flex h-[34px] w-full items-center justify-center gap-2 rounded-[7px] bg-[#F4B942] px-4 text-[11px] font-medium text-[#333333] transition hover:bg-[#E5AA32] sm:w-auto"
           >
             <Image
               src="/akar-icons_circle-plus.svg"

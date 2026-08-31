@@ -32,10 +32,10 @@ const trustStats: TrustStat[] = [
 export default function TrustStats() {
   return (
     <section className="w-full px-6 py-8">
-      <div className="mx-auto flex max-w-[1340px] items-center rounded-[8px] bg-[#1E5A4F] px-7 py-4 text-white md:flex-row md:justify-between">
+      <div className="mx-auto flex max-w-[1340px] flex-col items-stretch rounded-[8px] bg-[#1E5A4F] px-5 py-6 text-white md:flex-row md:items-center md:justify-between md:px-7 md:py-4">
 
         {/* Trust Message */}
-        <div className="flex max-w-[360px] items-center gap-4">
+        <div className="flex max-w-none items-center gap-4 md:max-w-[360px]">
           
           {/* Trust Icon */}
           <div className="shrink-0">
@@ -44,12 +44,13 @@ export default function TrustStats() {
               alt="Trust"
               width={45}
               height={45}
+              className="h-9 w-9 md:h-[45px] md:w-[45px]"
             />
           </div>
 
           {/* Text */}
           <div>
-            <h2 className="text-[14px] font-bold leading-5">
+            <h2 className="text-[13px] font-bold leading-5 md:text-[14px]">
               Trust is our foundation
             </h2>
 
@@ -62,10 +63,10 @@ export default function TrustStats() {
         </div>
 
         {/* Divider */}
-        <div className="mx-7 h-[55px] w-px bg-white/30" />
+        <div className="my-5 h-px w-full bg-white/30 md:mx-7 md:my-0 md:h-[55px] md:w-px" />
 
         {/* Statistics */}
-        <div className="grid flex-1 grid-cols-4">
+        <div className="grid flex-1 grid-cols-2 gap-y-4 md:grid-cols-4 md:gap-y-0">
           {trustStats.map((stat) => (
             <div
               key={stat.label}
@@ -78,7 +79,7 @@ export default function TrustStats() {
                   alt={stat.label}
                   width={32}
                   height={32}
-                  className="h-8 w-8 object-contain"
+                  className="h-7 w-7 object-contain md:h-8 md:w-8"
                 />
               </div>
 
