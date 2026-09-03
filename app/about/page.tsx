@@ -1,8 +1,22 @@
 import React from 'react'
+import AboutHero from '@/component/about/AboutHero';
+import TrustStats from '@/component/How it works/Truststats';
+import MissionVisionValues from '@/component/about/MissionVisionValues';
+import WhyWeExist from '@/component/about/WhyWeExist';
+import GetStarted from '@/component/about/AboutGetStarted';
+
+
+
 
 const AboutUs = () => {
   return (
-    <div className="text-5xl font-bold">This is the About Us page</div>
+    <main>
+      <AboutHero />
+      <TrustStats />
+      <MissionVisionValues />
+      <WhyWeExist />
+      <GetStarted />
+    </main>
   )
 }
 

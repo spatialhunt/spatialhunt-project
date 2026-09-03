@@ -72,8 +72,12 @@ export default function Header() {
           {/* How it works */}
           <li>
             <Link
-              href="/#howitworks"
-              className={navLinkStyles}
+              href="/howitworks"
+              className={
+                pathname === "/howitworks"
+                  ? activeNavLinkStyles
+                  : navLinkStyles
+              }
             >
               How it works
             </Link>
@@ -193,7 +197,11 @@ export default function Header() {
               <Link
                 href="/howitworks"
                 onClick={closeMenu}
-                className="block rounded-md px-4 py-3 font-bold text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]"
+                className={
+                  pathname === "/howitworks"
+                    ? "block rounded-md px-4 py-3 font-bold text-[#F4B942] underline decoration-2 underline-offset-4"
+                    : "block rounded-md px-4 py-3 font-bold text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]"
+                }
               >
                 How it works
               </Link>
