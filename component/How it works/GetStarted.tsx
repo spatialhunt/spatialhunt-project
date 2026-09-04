@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function GetStarted() {
   return (
@@ -32,7 +33,8 @@ export default function GetStarted() {
         <div className="flex w-full shrink-0 flex-col items-center gap-3 sm:w-auto sm:flex-row sm:gap-5">
           
           {/* Find a Home */}
-          <button
+          <Link href="/properties">
+              <button
             type="button"
             className="flex h-[34px] w-full items-center justify-center gap-2 rounded-[7px] bg-[#1E5A4F] px-4 text-[11px] font-medium text-white transition hover:bg-[#17483F] sm:w-auto"
           >
@@ -46,9 +48,12 @@ export default function GetStarted() {
 
             <span>Find a Home</span>
           </button>
+          </Link>
+          
 
           {/* List Your Property */}
-          <button
+          <Link href="/listproperty">
+              <button
             type="button"
             className="flex h-[34px] w-full items-center justify-center gap-2 rounded-[7px] bg-[#F4B942] px-4 text-[11px] font-medium text-[#333333] transition hover:bg-[#E5AA32] sm:w-auto"
           >
@@ -63,6 +68,8 @@ export default function GetStarted() {
             <span>List Your Property</span>
           </button>
 
+          </Link>
+          
         </div>
       </div>
     </section>

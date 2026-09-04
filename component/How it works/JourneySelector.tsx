@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link';
 
 function JourneySelector() {
   return (
@@ -16,31 +17,39 @@ function JourneySelector() {
         {/* Journey Tabs */}
         <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-5">
           {/* For Tenants */}
-          <button
+          <Link href="/dashboard/tenant">
+            <button
             type="button"
             className="flex h-[35px] w-[164px] items-center justify-center gap-2 rounded-md bg-[#1E5A4F] text-sm font-medium text-white"
           >
             <img src="/iconamoon_profile-light.svg" className="h-4 w-4" />
             <span>For Tenants</span>
           </button>
+          </Link>
+          
 
           {/* For Landlords */}
-          <button
+          <Link href="/dashboard/landlords">
+            <button
             type="button"
             className="flex h-[35px] w-[164px] items-center justify-center gap-2 rounded-md border border-[#777777] bg-white text-sm font-medium text-[#333333]"
           >
             <img src="/lucide_house.svg" className="h-4 w-4" />
             <span>For Landlords</span>
           </button>
-
-          {/* For Agents */}
-          <button
+          </Link>
+          
+          {/* For Hunters */}
+          <Link href="/dashboard/hunters">
+             <button
             type="button"
             className="flex h-[35px] w-[164px] items-center justify-center gap-2 rounded-md border border-[#777777] bg-white text-sm font-medium text-[#333333]"
           >
             <img src="/briefcase.svg" className="h-4 w-4" />
-            <span>For Agents</span>
+            <span>For Hunters</span>
           </button>
+          </Link>
+         
         </div>
       </div>
     </section>
