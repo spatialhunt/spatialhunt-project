@@ -6,7 +6,7 @@ import TrustStats from '@/component/How it works/Truststats';
 import GetStarted from '@/component/How it works/GetStarted';
 
 
-function HowItWorkes() {
+function HowItWorks() {
   return (
     <main>
       <HowItWorksHero />
@@ -18,4 +18,4 @@ function HowItWorkes() {
   )
 }
 
-export default HowItWorkes
+export default HowItWorks
