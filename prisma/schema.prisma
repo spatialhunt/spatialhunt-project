@@ -1,0 +1,230 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  TENANT
+  LANDLORD
+  ADMIN
+}
+
+enum PropertyType {
+  SINGLE_ROOM
+  APARTMENT
+  HOUSE
+}
+
+enum PropertyStatus {
+  DRAFT
+  PENDING_VERIFICATION
+  VERIFIED
+  REJECTED
+  RENTED
+}
+
+enum VerificationType {
+  LANDLORD_ID
+  PROPERTY_WALKTHROUGH
+}
+
+enum VerificationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum BookingStatus {
+  REQUESTED
+  CONFIRMED
+  DECLINED
+  RESCHEDULED
+  COMPLETED
+}
+
+enum EscrowStatus {
+  PENDING
+  FUNDED
+  INSPECTION_CONFIRMED
+  KEYS_RECEIVED
+  AGREEMENT_SIGNED
+  RELEASED
+  REFUNDED
+  DISPUTED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  fullName     String
+  phone        String?
+  role         Role     @default(TENANT)
+  isVerified   Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  properties    Property[]        @relation("LandlordProperties")
+  verifications Verification[]
+  favorites     Favorite[]
+  bookings      Booking[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+
+  @@map("users")
+}
+
+model Property {
+  id          String         @id @default(uuid())
+  ownerId     String
+  owner       User           @relation("LandlordProperties", fields: [ownerId], references: [id])
+  title       String
+  description String
+  price       Decimal        @db.Decimal(12, 2)
+  type        PropertyType
+  bedrooms    Int
+  bathrooms   Int
+  address     String
+  city        String
+  state       String
+  latitude    Float?
+  longitude   Float?
+  amenities   String[]
+  status      PropertyStatus @default(DRAFT)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  photos        PropertyPhoto[]
+  verifications Verification[]
+  favorites     Favorite[]
+  bookings      Booking[]
+  escrows       EscrowTransaction[]
+
+  furnishing  FurnishingType @default(UNFURNISHED)
+  pricePeriod PricePeriod    @default(YEARLY)
+  landmarks   Json?
+
+  listingIntent ListingIntent @default(RENT)
+
+  @@map("properties")
+}
+
+model PropertyPhoto {
+  id         String   @id @default(uuid())
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  url        String
+  isWalkthroughVideo Boolean @default(false)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  @@map("property_photos")
+}
+
+model Verification {
+  id             String              @id @default(uuid())
+  userId         String
+  user           User                @relation(fields: [userId], references: [id])
+  propertyId     String?
+  property       Property?           @relation(fields: [propertyId], references: [id])
+  type           VerificationType
+  status         VerificationStatus  @default(PENDING)
+  documentUrl    String
+  reviewedById   String?
+  reviewNotes    String?
+  createdAt      DateTime            @default(now())
+  reviewedAt     DateTime?
+
+  @@map("verifications")
+}
+
+model Favorite {
+  id         String   @id @default(uuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id])
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, propertyId])
+  @@map("favorites")
+}
+
+model Booking {
+  id          String        @id @default(uuid())
+  propertyId  String
+  property    Property      @relation(fields: [propertyId], references: [id])
+  tenantId    String
+  tenant      User          @relation(fields: [tenantId], references: [id])
+  scheduledAt DateTime
+  status      BookingStatus @default(REQUESTED)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@map("bookings")
+}
+
+model EscrowTransaction {
+  id                String       @id @default(uuid())
+  propertyId        String
+  property          Property     @relation(fields: [propertyId], references: [id])
+  tenantId          String
+  landlordId        String
+  amount            Decimal      @db.Decimal(12, 2)
+  status            EscrowStatus @default(PENDING)
+  paystackReference String?      @unique
+  fundedAt          DateTime?
+  inspectionConfirmedAt DateTime?
+  keysReceivedAt    DateTime?
+  agreementSignedAt DateTime?
+  releasedAt        DateTime?
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+
+  @@map("escrow_transactions")
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  type      String
+  message   String
+  relatedId String?
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@map("notifications")
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id])
+  action     String
+  entityType String
+  entityId   String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@map("audit_logs")
+}
+
+enum FurnishingType {
+  UNFURNISHED
+  SEMI_FURNISHED
+  FURNISHED
+}
+
+enum PricePeriod {
+  MONTHLY
+  YEARLY
+}
+
+enum ListingIntent {
+  RENT
+  SALE
+}
