@@ -45,7 +45,7 @@ export default function DashboardStats() {
         </h1>
 
         <p className="mt-1 font-bold text-sm text-[#000000]">
-          Here's what's happening with your account today.
+          Here is what is happening with your account today.
         </p>
       </div>
 

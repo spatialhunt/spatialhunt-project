@@ -3,6 +3,18 @@
 import React from "react";
 import Link from "next/link";
 
+type PropertyCardProps = {
+  id: string;
+  image: string;
+  title: string;
+  location: string;
+  price: string;
+  beds: number | string;
+  bathrooms: number | string;
+  parking: number | string;
+  description: string;
+};
+
 const PropertyCard = ({
   id,
   image,
@@ -13,7 +25,7 @@ const PropertyCard = ({
   bathrooms,
   parking,
   description,
-}) => {
+}: PropertyCardProps) => {
   return (
     <article className="w-full">
 

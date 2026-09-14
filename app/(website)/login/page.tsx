@@ -1,9 +1,10 @@
-import React from 'react'
+import { Suspense } from "react";
+import LoginForm from "@/component/auth/LoginForm";
 
-const Login = () => {
+export default function LoginPage() {
   return (
-    <div className="text-5xl font-bold">This is the Login page</div>
-  )
+    <Suspense fallback={<div className="py-16 text-center text-sm text-[#777777]">Loading…</div>}>
+      <LoginForm />
+    </Suspense>
+  );
 }
-
-export default Login

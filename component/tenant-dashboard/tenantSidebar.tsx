@@ -7,15 +7,30 @@ import { usePathname } from "next/navigation";
 
 const sidebarItems = [
   {
+    name: "Dashboard",
+    href: "/dashboard/tenant",
+    icon: "/dashboardlogo.svg",
+  },
+  {
     name: "Saved Properties",
     href: "/dashboard/tenant/saved-properties",
     icon: "/savedproperties.svg",
+  },
+  {
+    name: "Saved Searches",
+    href: "/dashboard/tenant/saved-searches",
+    icon: "/searchicon.svg",
   },
   {
     name: "My Enquiries",
     href: "/dashboard/tenant/enquiries",
     icon: "/myenquiries.svg",
     badge: "/no3.svg",
+  },
+  {
+    name: "Inspections",
+    href: "/dashboard/tenant/inspections",
+    icon: "/akar-icons_schedule.svg",
   },
   {
     name: "Applications",
@@ -33,6 +48,11 @@ const sidebarItems = [
     name: "Rent Payments",
     href: "/dashboard/tenant/payments",
     icon: "/payment.svg",
+  },
+  {
+    name: "Notifications",
+    href: "/dashboard/tenant/notifications",
+    icon: "/notification.svg",
   },
   {
     name: "My Documents",
@@ -283,11 +303,9 @@ export default function TenantSidebar() {
 
             {/* ================= LOG OUT ================= */}
 
-            <button
-              type="button"
-              onClick={() => {
-                console.log("Logging out...");
-              }}
+            <Link
+              href="/logout"
+              onClick={closeMobileMenu}
               className="
                 group
                 flex
@@ -337,7 +355,7 @@ export default function TenantSidebar() {
                 Log Out
               </span>
 
-            </button>
+            </Link>
 
           </nav>
 
