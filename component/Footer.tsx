@@ -28,9 +28,9 @@ function Footer() {
           </h3>
 
           <div className="mt-1 flex w-[97px] flex-col text-base font-medium leading-6">
-            <a href="#">Properties</a>
-            <a href="#">How It Works</a>
-            <a href="#">About Us</a>
+            <a href="/properties">Properties</a>
+            <a href="/HowItWorks">How It Works</a>
+            <a href="/about">About Us</a>
             <a href="#">Resources</a>
             <a href="#">Contact Us</a>
           </div>
@@ -173,7 +173,7 @@ function Footer() {
       </div>
 
       {/* Social Media */}
-      <div className="mt-6 flex justify-start gap-2">
+       <div className="mt-6 flex justify-start gap-2">
         <Image
           src="/icon facebook.svg"
           alt="Facebook"
@@ -194,19 +194,24 @@ function Footer() {
           />
         </a>
 
-        <Image
-          src="/linkedin.svg"
-          alt="LinkedIn"
+      <a href="https://www.tiktok.com/@spatialhunt">
+      <Image
+          src="/tiktok.svg"
+          alt="tiktok"
           width={24}
           height={24}
         />
-
-        <Image
-          src="/icon youtube.svg"
-          alt="YouTube"
+      </a>
+        
+        <a href="https://x.com/thespatialhunt">
+          <Image
+          src="/x.svg"
+          alt="xicon"
           width={24}
           height={24}
         />
+        </a>
+        
       </div>
 
       {/* Divider */}
