@@ -29,7 +29,7 @@ function JourneySelector() {
           
 
           {/* For Landlords */}
-          <Link href="/dashboard/landlords">
+          <Link href="/dashboard/tenant">
             <button
             type="button"
             className="flex h-[35px] w-[164px] items-center justify-center gap-2 rounded-md border border-[#777777] bg-white text-sm font-medium text-[#333333]"
