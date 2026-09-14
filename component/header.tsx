@@ -116,12 +116,26 @@ export default function Header() {
             <Link
               href="/login"
               className={
-                pathname === "/login"
+                pathname === "/login" || pathname.startsWith("/signup")
                   ? activeNavLinkStyles
                   : navLinkStyles
               }
             >
               Login
+            </Link>
+          </li>
+
+          {/* Sign up */}
+          <li>
+            <Link
+              href="/signup"
+              className={
+                pathname.startsWith("/signup")
+                  ? activeNavLinkStyles
+                  : navLinkStyles
+              }
+            >
+              Sign up
             </Link>
           </li>
 
@@ -249,6 +263,21 @@ export default function Header() {
                 }
               >
                 Login
+              </Link>
+            </li>
+
+            {/* Sign up */}
+            <li>
+              <Link
+                href="/signup"
+                onClick={closeMenu}
+                className={
+                  pathname.startsWith("/signup")
+                    ? "block rounded-md px-4 py-3 font-bold text-[#F4B942] underline decoration-2 underline-offset-4"
+                    : "block rounded-md px-4 py-3 font-bold text-[#1E5A4F] transition-all duration-200 hover:bg-[#FFF4D6] hover:text-[#C58D16]"
+                }
+              >
+                Sign up
               </Link>
             </li>
 
