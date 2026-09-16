@@ -1,11 +1,11 @@
-import Showcase from "@/component/home/showcase";
-import Showsection from '@/component/home/show';
-import SalesSection from '@/component/home/sales';
-import HowItWorks from '@/component/home/howitworks';
-import FeatureProperties from '@/component/home/features';
-import Features2 from '@/component/home/features2';
-import LandLord from '@/component/home/landlord';
-import Testimony from '@/component/home/testimony';
+import Showcase from "@/component/Home/ShowCase";
+import Showsection from '@/component/Home/Show';
+import SalesSection from '@/component/Home/Sales';
+import HowItWorks from '@/component/Home/HowItWorks';
+import FeatureProperties from '@/component/Home/Features';
+import Features2 from '@/component/Home/Features2';
+import LandLord from '@/component/Home/LandLord';
+import Testimony from '@/component/Home/Testimony';
 
 
 const Page = () => {

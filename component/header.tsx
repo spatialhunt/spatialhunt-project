@@ -72,7 +72,7 @@ export default function Header() {
           {/* How it works */}
           <li>
             <Link
-              href="/howitworks"
+              href="/how-it-works"
               className={
                 pathname === "/howitworks"
                   ? activeNavLinkStyles
@@ -142,9 +142,9 @@ export default function Header() {
           {/* List Your Property */}
           <li>
             <Link
-              href="/listproperty"
+              href="/list-property"
               className={
-                pathname === "/listproperty"
+                pathname === "/list-property"
                   ? "rounded-md bg-[#1E5A4F] px-4 py-2 text-white underline decoration-2 underline-offset-4 transition-all duration-200"
                   : "rounded-md bg-[#F4B940] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
               }
@@ -209,7 +209,7 @@ export default function Header() {
             {/* How it works */}
             <li>
               <Link
-                href="/howitworks"
+                href="/how-it-works"
                 onClick={closeMenu}
                 className={
                   pathname === "/howitworks"
@@ -284,10 +284,10 @@ export default function Header() {
             {/* List Your Property */}
             <li className="pt-2">
               <Link
-                href="/listproperty"
+                href="/list-property"
                 onClick={closeMenu}
                 className={
-                  pathname === "/listproperty"
+                  pathname === "/list-property"
                     ? "block rounded-md bg-[#1E5A4F] px-4 py-3 text-center text-white underline decoration-2 underline-offset-4 transition-all duration-200"
                     : "block rounded-md bg-[#F4B940] px-4 py-3 text-center text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white"
                 }
