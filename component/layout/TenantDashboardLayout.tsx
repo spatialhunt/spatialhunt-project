@@ -2,8 +2,8 @@
 
 import type { ReactNode } from "react";
 import { useRouter } from "next/navigation";
-import TenantHero from "@/component/tenant-dashboard/tenantHero";
-import TenantSidebar from "@/component/tenant-dashboard/tenantSidebar";
+import TenantHero from "@/component/tenant-dashboard/TenantHero";
+import TenantSidebar from "@/component/tenant-dashboard/TenantSidebar";
 import { useAuthSession } from "@/lib/use-auth-session";
 import { UnauthorizedState } from "@/component/shared/AppStates";
 import { Button } from "@/component/ui/primitives";

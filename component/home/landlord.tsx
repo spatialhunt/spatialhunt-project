@@ -30,7 +30,7 @@ const LandLord = () => {
         </p>
 
         <div className="mt-5.5 flex justify-center md:justify-start">
-          <Link href="/listproperty">
+          <Link href="/list-property">
             <button className="inline-flex items-center gap-2 rounded-md bg-[#F4B942] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white">
               List Your Property Now
               <span className="flex h-3 w-3 shrink-0">

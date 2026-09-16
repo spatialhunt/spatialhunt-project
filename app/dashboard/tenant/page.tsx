@@ -1,12 +1,12 @@
 import React from "react";
-import TenantHero from "@/component/tenant-dashboard/tenantHero";
-import TenantSidebar from "@/component/tenant-dashboard/tenantSidebar";
-import DashboardStats from "@/component/tenant-dashboard/dashboardStats";
-import Recommended from "@/component/tenant-dashboard/recommended";
-import MyEnquiry from "@/component/tenant-dashboard/myEnquiry";
-import AccountOverview from "@/component/tenant-dashboard/accountOverview";
-import RecentActivity from "@/component/tenant-dashboard/recentActivity";
-import QuickActions from "@/component/tenant-dashboard/quickActions";
+import TenantHero from "@/component/tenant-dashboard/TenantHero";
+import TenantSidebar from "@/component/tenant-dashboard/TenantSidebar";
+import DashboardStats from "@/component/tenant-dashboard/DashboardStats";
+import Recommended from "@/component/tenant-dashboard/Recommended";
+import MyEnquiry from "@/component/tenant-dashboard/MyEnquiry";
+import AccountOverview from "@/component/tenant-dashboard/AccountOverview";
+import RecentActivity from "@/component/tenant-dashboard/RecentActivity";
+import QuickActions from "@/component/tenant-dashboard/QuickActions";
 
 const Page = () => {
   return (
