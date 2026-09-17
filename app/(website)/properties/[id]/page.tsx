@@ -31,7 +31,7 @@ const propertyData = {
 };
 
 const galleryImages = [
-  "/bmain.svg",
+  "/property-one.svg",
   "/thumbnail1.svg",
   "/thumbnail2.svg",
   "/thumbnail3.svg",
