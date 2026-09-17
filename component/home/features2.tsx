@@ -1,46 +1,66 @@
-import React from 'react'
+import Image from "next/image";
 
-const Features2 = () => {
+const stats = [
+  { icon: "/bi_people.svg",            value: "2,000+", label: "Happy Renters" },
+  { icon: "/verifyproperty.svg",       value: "500+",   label: "Verified Properties" },
+  { icon: "/ic_outline-gpp-good.svg",  value: "100%",   label: "Verified Landlords" },
+  { icon: "/fa_handshake-o.svg",       value: "Zero",   label: "No Middlemen" },
+];
+
+export default function Features2() {
   return (
-    <section className="mt-2 bg-[#1E5A4F] pb-4">
-      {/* flex container */}
-      <div className="flex flex-col md:flex-row lg:items-center">
+    <section className="bg-[#1E5A4F]">
+      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+        <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
 
-        {/* 1st item */}
-        <div className="flex w-full flex-col items-center text-center md:w-1/2 md:flex-row md:items-start md:text-left lg:pl-6">
-          <img
-            src="./gicon.svg"
-            alt="gicon"
-            className="ml-0 h-24 w-24 pt-8 md:ml-6 md:h-32 md:w-32 md:pt-12 lg:ml-4"
-          />
+          {/* Left */}
+          <div className="w-full lg:w-1/2">
+            <div className="flex items-start gap-5">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/15">
+                <Image src="/gicon.svg" alt="verified" width={36} height={36} unoptimized />
+              </div>
+              <div>
+                <h2 className="text-2xl font-extrabold text-white md:text-3xl">
+                  We verify so you can trust us
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-white/75">
+                  Every landlord and property on SpatialHunt goes through a strict
+                  3-step verification — government ID, proof of ownership, and a
+                  live video walkthrough. We cannot afford to get it wrong.
+                </p>
+              </div>
+            </div>
 
-          <div className="flex flex-col px-5 pl-0 md:px-0 md:pl-3 lg:pl-5">
-            <h1 className="pt-6 text-xl font-bold text-[#ffffff] md:pb-2 md:pt-10 md:text-2xl">
-              We verify so you can trust us
-            </h1>
+            {/* Stat cards */}
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              {stats.map((s) => (
+                <div
+                  key={s.label}
+                  className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-4 py-5 text-center backdrop-blur-sm"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F4B940]/20">
+                    <Image src={s.icon} alt="" width={22} height={22} unoptimized />
+                  </div>
+                  <span className="text-xl font-extrabold text-[#F4B940]">{s.value}</span>
+                  <span className="text-xs font-semibold text-white/70">{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            <p className="mx-1 mt-3 font-medium text-[#ffffff] md:mx-0 md:mt-0">
-              Every landlord and property listed on SpatialHunt,
-              <br className="hidden md:block" />
-              goes through a strict verification process.
-              <br className="hidden md:block" />
-              We cannot afford to get it wrong.
-            </p>
+          {/* Right image */}
+          <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
+            <Image
+              src="/feature2img.svg"
+              alt="Verification process"
+              width={520}
+              height={420}
+              className="h-auto w-full max-w-[440px] lg:max-w-[520px]"
+              unoptimized
+            />
           </div>
         </div>
-
-        {/* 2nd item */}
-        <div className="flex w-full justify-center md:block md:w-1/2 lg:flex lg:justify-center">
-          <img
-            src="./feature2img.svg"
-            alt="feature2-img"
-            className="w-full max-w-[320px] pt-8 md:max-w-none md:ml-18 md:w-120 md:pt-16 lg:ml-0 lg:w-[520px]"
-          />
-        </div>
-
       </div>
     </section>
-  )
+  );
 }
-
-export default Features2

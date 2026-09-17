@@ -2,7 +2,7 @@
 
 import React, { useMemo } from "react";
 import { useSearchParams } from "next/navigation";
-import PropertyCard from "@/component/properties/PropertyCard";
+import PropertyCard from "@/component/properties/propertycard";
 
 const properties = [
   {

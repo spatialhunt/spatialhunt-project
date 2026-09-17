@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
@@ -12,33 +13,37 @@ export default function LoginForm() {
   const searchParams = useSearchParams();
   const next = searchParams.get("next");
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail]               = useState("");
+  const [password, setPassword]         = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [error, setError]               = useState<string | null>(null);
+  const [loading, setLoading]           = useState(false);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
     setLoading(true);
     try {
-      const session = await authService.login({ email, password });
-      if (next) {
-        router.push(next);
-      } else if (session.role === "LANDLORD") {
-        router.push("/landlord/dashboard");
-      } else if (session.role === "ADMIN") {
-        router.push("/admin/dashboard");
-      } else {
-        router.push("/dashboard/tenant");
-      }
+      const session = await authService.login({ email: email.trim(), password });
+      const destination =
+        next ||
+        (session.role === "LANDLORD" ? "/landlord/dashboard" :
+         session.role === "ADMIN"    ? "/admin/dashboard"    :
+                                       "/dashboard/tenant");
+      router.push(destination);
+      router.refresh();
     } catch (err) {
-      const message =
-        err instanceof ApiError
-          ? "Invalid email or password. Please try again."
-          : "Unable to sign in right now. Check your connection and try again.";
-      setError(message);
+      if (err instanceof ApiError) {
+        setError(
+          err.status === 401
+            ? "Invalid email or password. Please try again."
+            : err.status === 500
+            ? "Something went wrong on our end. Please try again in a moment."
+            : err.message,
+        );
+      } else {
+        setError("Unable to sign in. Please check your connection and try again.");
+      }
     } finally {
       setLoading(false);
     }
@@ -46,69 +51,70 @@ export default function LoginForm() {
 
   return (
     <div className="mx-auto w-full max-w-md px-4 py-12 sm:py-16">
+
+      {/* Logo + headline */}
       <div className="mb-8 text-center">
-        <img src="/SH-LOGO.svg" alt="" className="mx-auto h-14 w-auto" />
-        <h1 className="mt-4 text-2xl font-bold text-[#2E2E2E]">Welcome back</h1>
-        <p className="mt-2 text-sm text-[#777777]">
+        <Image src="/SH-LOGO.svg" alt="SpatialHunt" width={56} height={68} className="mx-auto" unoptimized />
+        <h1 className="mt-5 text-2xl font-extrabold text-[#2E2E2E]">Welcome back</h1>
+        <p className="mt-2 text-sm text-[#777]">
           Sign in to continue to SpatialHunt — verified homes, direct to landlords.
         </p>
       </div>
 
+      {/* Form card */}
       <form
         onSubmit={onSubmit}
-        className="rounded-[8px] border border-[#EEEEEE] bg-[#FAFAF8] p-5 sm:p-6"
+        className="space-y-4 rounded-2xl border border-[#E8E8E8] bg-[#FAFAFA] p-6 shadow-sm"
         noValidate
       >
-        <div className="space-y-4">
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="you@email.com"
+        />
+
+        <div className="relative">
           <Input
-            label="Email"
-            name="email"
-            type="email"
-            autoComplete="email"
+            label="Password"
+            name="password"
+            type={showPassword ? "text" : "password"}
+            autoComplete="current-password"
             required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@email.com"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Your password"
           />
-          <div className="relative">
-            <Input
-              label="Password"
-              name="password"
-              type={showPassword ? "text" : "password"}
-              autoComplete="current-password"
-              required
-              minLength={8}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="At least 8 characters"
-            />
-            <button
-              type="button"
-              className="absolute right-3 top-[34px] text-xs font-semibold text-[#1E5A4F]"
-              onClick={() => setShowPassword((v) => !v)}
-            >
-              {showPassword ? "Hide" : "Show"}
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => setShowPassword((v) => !v)}
+            className="absolute right-3 top-[34px] text-xs font-semibold text-[#1E5A4F]"
+          >
+            {showPassword ? "Hide" : "Show"}
+          </button>
         </div>
 
         {error && (
-          <p role="alert" className="mt-4 text-sm text-[#C58D16]">
+          <p role="alert" className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
             {error}
           </p>
         )}
 
-        <Button type="submit" variant="amber" className="mt-6 w-full" disabled={loading}>
+        <Button type="submit" variant="amber" className="w-full" disabled={loading}>
           {loading ? "Signing in…" : "Sign in"}
         </Button>
 
-        <div className="mt-4 flex flex-col gap-2 text-center text-sm">
+        <div className="flex flex-col items-center gap-2 pt-1 text-sm">
           <Link href="/forgot-password" className="font-medium text-[#1E5A4F] hover:underline">
             Forgot password?
           </Link>
-          <p className="text-[#777777]">
+          <p className="text-[#777]">
             New to SpatialHunt?{" "}
-            <Link href="/signup" className="font-semibold text-[#1E5A4F] hover:underline">
+            <Link href="/signup" className="font-bold text-[#1E5A4F] hover:underline">
               Create an account
             </Link>
           </p>

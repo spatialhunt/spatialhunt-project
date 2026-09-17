@@ -1,395 +1,165 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-const SalesSection = () => {
-  const router = useRouter();
+const propertyTypes = ["All Types", "2 Bedroom Apartment", "Mini Flat", "3 Bedroom Flat", "4 Bedroom Duplex", "Luxury Condo"];
+const priceRanges   = ["Any Price", "₦800,000/year", "₦1,200,000/year", "₦2,500,000/year", "₦3,000,000/year", "₦40,000,000+"];
+const bedroomOpts   = ["Any", "1 Bedroom", "2 Bedrooms", "3 Bedrooms", "4+ Bedrooms"];
 
-  const [location, setLocation] = useState("");
+export default function SalesSection() {
+  const router = useRouter();
+  const [tab, setTab]                 = useState<"rent" | "sale">("rent");
+  const [location, setLocation]       = useState("");
   const [propertyType, setPropertyType] = useState("All Types");
-  const [priceRange, setPriceRange] = useState("Any Price");
-  const [bedrooms, setBedrooms] = useState("Any");
+  const [priceRange, setPriceRange]   = useState("Any Price");
+  const [bedrooms, setBedrooms]       = useState("Any");
 
   const handleSearch = () => {
-    const params = new URLSearchParams();
-
-    if (location.trim()) {
-      params.set("location", location.trim());
-    }
-
-    if (propertyType !== "All Types") {
-      params.set("type", propertyType);
-    }
-
-    if (priceRange !== "Any Price") {
-      params.set("price", priceRange);
-    }
-
-    if (bedrooms !== "Any") {
-      params.set("bedrooms", bedrooms);
-    }
-
-    const query = params.toString();
-
-    router.push(query ? `/properties?${query}` : "/properties");
+    const p = new URLSearchParams({ purpose: tab });
+    if (location.trim())              p.set("location", location.trim());
+    if (propertyType !== "All Types") p.set("type", propertyType);
+    if (priceRange !== "Any Price")   p.set("price", priceRange);
+    if (bedrooms !== "Any")           p.set("bedrooms", bedrooms);
+    router.push(`/properties?${p.toString()}`);
   };
 
   return (
-    <section className="mt-10 w-full bg-[#D9D9D9] px-4 py-8 sm:px-6 md:px-8 lg:px-12 xl:px-16">
-
-      {/* ================= MOBILE ================= */}
-
-      <div className="md:hidden">
-
-        {/* Rent / Sale */}
-        <div className="flex gap-4">
-
-          <Link
-            href="/properties?purpose=rent"
-            className="rounded-[0.5rem] bg-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
-          >
-            For Rent
-          </Link>
-
-          <Link
-            href="/properties?purpose=sale"
-            className="rounded-[0.5rem] border border-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:bg-[#1E5A4F] hover:text-white"
-          >
-            For Sale
-          </Link>
-
-        </div>
-
-
-        <div className="mt-6 flex flex-col">
-
-          {/* Location */}
-
-          <div className="flex flex-col">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E]">
-              Location
-            </label>
-
-            <div className="flex h-12 items-center rounded-[0.5rem] bg-white px-3">
-
-              <img
-                src="/location.svg"
-                alt="location icon"
-                className="h-5 w-5 shrink-0"
-              />
-
-              <input
-                type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                placeholder="Where are you looking?"
-                className="ml-2 w-full bg-transparent text-sm outline-none"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Property Type */}
-
-          <div className="mt-5 flex flex-col">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E]">
-              Property type
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={propertyType}
-                onChange={(e) => setPropertyType(e.target.value)}
-                className="h-12 w-full appearance-none rounded-[0.5rem] bg-white px-3 pr-10 text-sm outline-none"
-              >
-                <option>All Types</option>
-                <option>2 Bedroom Apartment</option>
-                <option>Mini Flat</option>
-                <option>3 Bedroom Flat</option>
-                <option>4 Bedroom Duplex</option>
-                <option>Luxury Condo</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Price Range */}
-
-          <div className="mt-5 flex flex-col">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E]">
-              Price Range
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
-                className="h-12 w-full appearance-none rounded-[0.5rem] bg-white px-3 pr-10 text-sm outline-none"
-              >
-                <option>Any Price</option>
-                <option>₦800,000/year</option>
-                <option>₦2,500,000/year</option>
-                <option>₦3,000,000/year</option>
-                <option>₦85,000,000</option>
-                <option>₦3,000,000,000</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Bedrooms */}
-
-          <div className="mt-5 flex flex-col">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E]">
-              Bedrooms
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={bedrooms}
-                onChange={(e) => setBedrooms(e.target.value)}
-                className="h-12 w-full appearance-none rounded-[0.5rem] bg-white px-3 pr-10 text-sm outline-none"
-              >
-                <option>Any</option>
-                <option>1 Bedroom</option>
-                <option>2 Bedrooms</option>
-                <option>3 Bedrooms</option>
-                <option>4+ Bedrooms</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Search */}
-
-          <button
-            type="button"
-            onClick={handleSearch}
-            className="mt-6 flex w-full items-center justify-center rounded-[0.5rem] bg-[#F4B940] px-5 py-3 text-sm font-medium text-[#1E5A4F] transition hover:opacity-90"
-          >
-            Search Properties
-          </button>
-
-        </div>
-
-      </div>
-
-
-      {/* ================= TABLET + DESKTOP ================= */}
-
-      <div className="hidden md:block">
-
-        {/* Rent / Sale */}
-
-        <div className="flex gap-8 lg:gap-10">
-
-          <Link
-            href="/properties?purpose=rent"
-            className="rounded-[0.5rem] bg-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
-          >
-            For Rent
-          </Link>
-
-          <Link
-            href="/properties?purpose=sale"
-            className="rounded-[0.5rem] border border-[#1E5A4F] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:bg-[#1E5A4F] hover:text-white"
-          >
-            For Sale
-          </Link>
-
-        </div>
-
-
-        {/* Search Row */}
-
-        <div className="mt-6 flex w-full items-stretch rounded-[0.5rem] bg-white">
-
-
-          {/* Location */}
-
-          <div className="flex min-w-0 flex-[1.4] flex-col justify-center px-4 py-3 lg:px-5">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E] lg:text-base">
-              Location
-            </label>
-
-            <div className="flex min-w-0 items-center">
-
-              <img
-                src="/location.svg"
-                alt="location icon"
-                className="h-6 w-6 shrink-0"
-              />
-
-              <input
-                type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                placeholder="Where are you looking?"
-                className="ml-2 min-w-0 w-full bg-transparent text-sm outline-none lg:text-base"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Property Type */}
-
-          <div className="flex min-w-0 flex-[1.1] flex-col justify-center border-l border-[#D9D9D9] px-4 py-3 lg:px-5">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E] lg:text-base">
-              Property type
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={propertyType}
-                onChange={(e) => setPropertyType(e.target.value)}
-                className="w-full appearance-none bg-transparent pr-8 text-sm outline-none lg:text-base"
-              >
-                <option>All Types</option>
-                <option>2 Bedroom Apartment</option>
-                <option>Mini Flat</option>
-                <option>3 Bedroom Flat</option>
-                <option>4 Bedroom Duplex</option>
-                <option>Luxury Condo</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-0 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Price Range */}
-
-          <div className="flex min-w-0 flex-[1.1] flex-col justify-center border-l border-[#D9D9D9] px-4 py-3 lg:px-5">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E] lg:text-base">
-              Price Range
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={priceRange}
-                onChange={(e) => setPriceRange(e.target.value)}
-                className="w-full appearance-none bg-transparent pr-8 text-sm outline-none lg:text-base"
-              >
-                <option>Any Price</option>
-                <option>₦800,000/year</option>
-                <option>₦2,500,000/year</option>
-                <option>₦3,000,000/year</option>
-                <option>₦85,000,000</option>
-                <option>₦3,000,000,000</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-0 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Bedrooms */}
-
-          <div className="flex min-w-0 flex-[0.8] flex-col justify-center border-l border-[#D9D9D9] px-4 py-3 lg:px-5">
-
-            <label className="mb-2 text-sm font-medium text-[#2E2E2E] lg:text-base">
-              Bedrooms
-            </label>
-
-            <div className="relative">
-
-              <select
-                value={bedrooms}
-                onChange={(e) => setBedrooms(e.target.value)}
-                className="w-full appearance-none bg-transparent pr-8 text-sm outline-none lg:text-base"
-              >
-                <option>Any</option>
-                <option>1 Bedroom</option>
-                <option>2 Bedrooms</option>
-                <option>3 Bedrooms</option>
-                <option>4+ Bedrooms</option>
-              </select>
-
-              <img
-                src="/dropdown.svg"
-                alt=""
-                className="pointer-events-none absolute right-0 top-1/2 h-5 w-5 -translate-y-1/2"
-              />
-
-            </div>
-
-          </div>
-
-
-          {/* Search Button */}
-
-          <div className="flex shrink-0 items-center border-l border-[#D9D9D9] px-3 lg:px-4">
-
+    <section className="w-full bg-[#E8E8E8] px-5 py-8 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-[1400px]">
+
+        {/* Tab row */}
+        <div className="mb-5 flex gap-3">
+          {(["rent", "sale"] as const).map((t) => (
             <button
-              type="button"
-              onClick={handleSearch}
-              className="whitespace-nowrap rounded-[0.5rem] bg-[#F4B940] px-4 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:opacity-90 lg:px-5 lg:py-3"
+              key={t}
+              onClick={() => setTab(t)}
+              className={`rounded-lg px-5 py-2.5 text-sm font-bold capitalize shadow-sm transition-all duration-200 ${
+                tab === t
+                  ? "bg-[#1E5A4F] text-white"
+                  : "bg-white text-[#1E5A4F] hover:bg-[#1E5A4F] hover:text-white"
+              }`}
             >
+              For {t === "rent" ? "Rent" : "Sale"}
+            </button>
+          ))}
+        </div>
+
+        {/* ── DESKTOP bar ── */}
+        <div className="hidden overflow-hidden rounded-2xl bg-white shadow-lg md:flex">
+          {/* Location */}
+          <div className="flex min-w-0 flex-[1.8] flex-col justify-center gap-1 px-5 py-4">
+            <label className="text-[11px] font-bold uppercase tracking-wider text-[#999]">Location</label>
+            <div className="flex items-center gap-2">
+              <Image src="/location.svg" alt="" width={16} height={16} unoptimized className="shrink-0 opacity-60" />
+              <input
+                type="text"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
+                placeholder="Where are you looking?"
+                className="w-full bg-transparent text-sm text-[#2E2E2E] outline-none placeholder:text-[#bbb]"
+              />
+            </div>
+          </div>
+
+          <div className="my-3 w-px bg-[#E5E5E5]" />
+
+          {/* Property Type */}
+          <div className="flex min-w-0 flex-[1.2] flex-col justify-center gap-1 px-5 py-4">
+            <label className="text-[11px] font-bold uppercase tracking-wider text-[#999]">Property Type</label>
+            <div className="relative">
+              <select value={propertyType} onChange={(e) => setPropertyType(e.target.value)}
+                className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
+                {propertyTypes.map((o) => <option key={o}>{o}</option>)}
+              </select>
+              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+            </div>
+          </div>
+
+          <div className="my-3 w-px bg-[#E5E5E5]" />
+
+          {/* Price */}
+          <div className="flex min-w-0 flex-[1.2] flex-col justify-center gap-1 px-5 py-4">
+            <label className="text-[11px] font-bold uppercase tracking-wider text-[#999]">Price Range</label>
+            <div className="relative">
+              <select value={priceRange} onChange={(e) => setPriceRange(e.target.value)}
+                className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
+                {priceRanges.map((o) => <option key={o}>{o}</option>)}
+              </select>
+              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+            </div>
+          </div>
+
+          <div className="my-3 w-px bg-[#E5E5E5]" />
+
+          {/* Bedrooms */}
+          <div className="flex min-w-0 flex-[0.9] flex-col justify-center gap-1 px-5 py-4">
+            <label className="text-[11px] font-bold uppercase tracking-wider text-[#999]">Bedrooms</label>
+            <div className="relative">
+              <select value={bedrooms} onChange={(e) => setBedrooms(e.target.value)}
+                className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
+                {bedroomOpts.map((o) => <option key={o}>{o}</option>)}
+              </select>
+              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+            </div>
+          </div>
+
+          {/* Search btn */}
+          <div className="flex shrink-0 items-center p-3">
+            <button onClick={handleSearch}
+              className="rounded-xl bg-[#F4B940] px-6 py-3 text-sm font-bold text-[#1E5A4F] shadow transition-all duration-200 hover:bg-[#e0a830] active:scale-95 whitespace-nowrap">
               Search Properties
             </button>
-
           </div>
-
         </div>
 
-      </div>
+        {/* ── MOBILE stack ── */}
+        <div className="flex flex-col gap-3 md:hidden">
+          {/* Location */}
+          <div className="flex h-12 items-center gap-3 rounded-xl bg-white px-4 shadow-sm">
+            <Image src="/location.svg" alt="" width={16} height={16} unoptimized className="shrink-0 opacity-50" />
+            <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}
+              placeholder="Where are you looking?"
+              className="w-full bg-transparent text-sm outline-none placeholder:text-[#bbb]" />
+          </div>
 
+          <div className="grid grid-cols-2 gap-3">
+            {/* Type */}
+            <div className="relative flex h-12 items-center rounded-xl bg-white px-4 shadow-sm">
+              <select value={propertyType} onChange={(e) => setPropertyType(e.target.value)}
+                className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
+                {propertyTypes.map((o) => <option key={o}>{o}</option>)}
+              </select>
+              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+            </div>
+            {/* Price */}
+            <div className="relative flex h-12 items-center rounded-xl bg-white px-4 shadow-sm">
+              <select value={priceRange} onChange={(e) => setPriceRange(e.target.value)}
+                className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
+                {priceRanges.map((o) => <option key={o}>{o}</option>)}
+              </select>
+              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+            </div>
+          </div>
+
+          {/* Bedrooms */}
+          <div className="relative flex h-12 items-center rounded-xl bg-white px-4 shadow-sm">
+            <select value={bedrooms} onChange={(e) => setBedrooms(e.target.value)}
+              className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
+              {bedroomOpts.map((o) => <option key={o}>{o}</option>)}
+            </select>
+            <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+          </div>
+
+          <button onClick={handleSearch}
+            className="flex h-12 w-full items-center justify-center rounded-xl bg-[#F4B940] text-sm font-bold text-[#1E5A4F] shadow-md transition hover:bg-[#e0a830]">
+            Search Properties
+          </button>
+        </div>
+      </div>
     </section>
   );
-};
-
-export default SalesSection;
+}

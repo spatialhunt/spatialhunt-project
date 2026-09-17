@@ -1,57 +1,90 @@
-import React from 'react'
-import Link from 'next/link'
+import Link from "next/link";
+import Image from "next/image";
 
-const LandLord = () => {
+const benefits = [
+  "Thousands of landlords are getting quality, verified tenants with SpatialHunt.",
+  "No Middlemen — just direct results.",
+  "Secure escrow payments, guaranteed on move-in.",
+];
+
+export default function LandLord() {
   return (
-    <section className="mx-5 mt-0 flex flex-col gap-8 md:flex-row md:justify-between md:gap-12 lg:mx-10 lg:items-center lg:gap-8">
+    <section className="w-full bg-white">
+      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
 
-      {/* flex 1 */}
-      <div className="flex w-full justify-center md:w-1/3 md:justify-start lg:w-[34%]">
-        <img
-          src="./landlordimg.svg"
-          alt="landlord-img"
-          className="h-auto w-full max-w-[400px] md:h-[304px] md:w-[457px] lg:w-[460px]"
-        />
-      </div>
+        {/* Section label */}
+        <div className="mb-10 text-center">
+          <span className="inline-block rounded-full bg-[#F4B940]/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#F4B940]">
+            Are you a Landlord?
+          </span>
+          <h2 className="mt-3 text-2xl font-extrabold text-[#1E5A4F] md:text-3xl">
+            List your Property and get quality tenants faster
+          </h2>
+        </div>
 
-      {/* flex 2 */}
-      <div className="flex w-full flex-col text-center md:w-1/3 md:text-left lg:w-[32%]">
-        <p className="pt-2 font-bold text-[#1E5A4F] md:pt-6">
-          ARE YOU A LANDLORD?
-        </p>
+        <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-stretch lg:gap-6">
 
-        <h1 className="pb-3 pt-3 text-xl font-bold text-[#2E2E2E] md:pt-4 md:text-2xl">
-          List your Property and get quality tenants faster
-        </h1>
+          {/* Left image */}
+          <div className="w-full overflow-hidden rounded-2xl shadow-md lg:w-[36%]">
+            <Image
+              src="/landlordimg.svg"
+              alt="Landlord smiling"
+              width={500}
+              height={400}
+              className="h-full w-full object-cover"
+              unoptimized
+            />
+          </div>
 
-        <p className="mt-3.5 text-[#2E2E2E] md:mt-0">
-          Reach thousands of serious and genuine renters looking for their
-          next home. List once, get noticed twice!
-        </p>
+          {/* Centre text */}
+          <div className="flex w-full flex-col items-center justify-center rounded-2xl border border-[#E8E8E8] bg-[#F9FDFB] p-8 text-center shadow-sm lg:w-[30%]">
+            <p className="text-sm leading-7 text-[#666]">
+              Reach thousands of serious and genuine renters looking for their
+              next home. List once, get noticed fast!
+            </p>
+            <Link href="/list-property">
+              <button className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#F4B942] px-7 py-3 text-sm font-bold text-[#1E5A4F] shadow-md transition-all duration-200 hover:bg-[#e0a830] hover:shadow-lg active:scale-95">
+                List Your Property Now
+                <Image src="/arrow.svg" alt="" width={16} height={16} unoptimized />
+              </button>
+            </Link>
+          </div>
 
-        <div className="mt-5.5 flex justify-center md:justify-start">
-          <Link href="/list-property">
-            <button className="inline-flex items-center gap-2 rounded-md bg-[#F4B942] px-4 py-2 text-[#1E5A4F] transition-all duration-200 hover:bg-[#1E5A4F] hover:text-white">
-              List Your Property Now
-              <span className="flex h-3 w-3 shrink-0">
-                <img src="./arrow.svg" alt="arrow-icon" />
-              </span>
-            </button>
-          </Link>
+          {/* Right: benefits + image */}
+          <div className="flex w-full flex-col gap-5 lg:w-[32%]">
+
+            {/* Benefits card */}
+            <div className="rounded-2xl border border-[#E8E8E8] bg-white p-6 shadow-sm">
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1E5A4F]/10">
+                  <Image src="/why.svg" alt="" width={22} height={22} unoptimized />
+                </div>
+                <h3 className="font-bold text-[#1E5A4F]">Why SpatialHunt?</h3>
+              </div>
+              <ul className="flex flex-col gap-3">
+                {benefits.map((b) => (
+                  <li key={b} className="flex items-start gap-2.5 text-sm text-[#555]">
+                    <Image src="/greengood.svg" alt="✓" width={18} height={18} className="mt-0.5 shrink-0" unoptimized />
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right image */}
+            <div className="overflow-hidden rounded-2xl shadow-md">
+              <Image
+                src="/landlord2.svg"
+                alt="Happy tenants"
+                width={480}
+                height={200}
+                className="h-auto w-full object-cover"
+                unoptimized
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* flex 3 */}
-      <div className="flex w-full justify-center md:w-1/3 md:justify-start lg:w-[34%] lg:justify-end">
-        <img
-          src="./landlord2.svg"
-          alt="landlord2-img"
-          className="h-auto w-full max-w-[400px] md:h-[298px] md:w-[500px] lg:w-[480px]"
-        />
-      </div>
-
     </section>
-  )
+  );
 }
-
-export default LandLord

@@ -20,6 +20,7 @@ interface AuthResponse {
   userId: string;
   email: string;
   role: Role;
+  fullName: string;
 }
 
 export const authService = {
@@ -28,7 +29,13 @@ export const authService = {
       method: "POST",
       body: JSON.stringify(payload),
     });
-    const session: AuthSession = { ...data };
+    const session: AuthSession = {
+      accessToken: data.accessToken,
+      userId: data.userId,
+      email: data.email,
+      role: data.role,
+      fullName: data.fullName,
+    };
     setSession(session);
     return session;
   },
@@ -38,7 +45,13 @@ export const authService = {
       method: "POST",
       body: JSON.stringify(payload),
     });
-    const session: AuthSession = { ...data, fullName: payload.fullName };
+    const session: AuthSession = {
+      accessToken: data.accessToken,
+      userId: data.userId,
+      email: data.email,
+      role: data.role,
+      fullName: data.fullName ?? payload.fullName,
+    };
     setSession(session);
     return session;
   },
@@ -47,19 +60,24 @@ export const authService = {
     clearSession();
   },
 
-  // TODO: Wire when backend endpoints exist
-  async requestPasswordReset(_email: string): Promise<void> {
-    // TODO: POST /api/auth/forgot-password
-    await new Promise((r) => setTimeout(r, 400));
+  async requestPasswordReset(email: string): Promise<void> {
+    await apiFetch<{ message: string }>("/api/auth/forgot-password", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    });
   },
 
-  async resetPassword(_token: string, _password: string): Promise<void> {
-    // TODO: POST /api/auth/reset-password
-    await new Promise((r) => setTimeout(r, 400));
+  async resetPassword(token: string, password: string): Promise<void> {
+    await apiFetch<{ message: string }>("/api/auth/reset-password", {
+      method: "POST",
+      body: JSON.stringify({ token, password }),
+    });
   },
 
-  async verifyAccount(_code: string): Promise<void> {
-    // TODO: POST /api/auth/verify-account
-    await new Promise((r) => setTimeout(r, 400));
+  async verifyAccount(code: string): Promise<void> {
+    await apiFetch<{ message: string }>("/api/auth/verify-account", {
+      method: "POST",
+      body: JSON.stringify({ code }),
+    });
   },
 };
