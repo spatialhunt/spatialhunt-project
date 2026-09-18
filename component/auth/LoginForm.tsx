@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
 import { ApiError } from "@/lib/services/http";
-import { Button, Input } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
 
 export default function LoginForm() {
   const router = useRouter();

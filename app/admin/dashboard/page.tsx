@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PageHeader, Surface } from "@/component/ui/primitives";
+import { PageHeader, Surface } from "@/component/ui/Primitives";
 import { KpiCard } from "@/component/shared/KpiCard";
 import { MOCK_USERS, MOCK_PROPERTIES, MOCK_VERIFICATIONS, MOCK_DISPUTES } from "@/mocks";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader, Surface } from "@/component/ui/primitives";
+import { PageHeader, Surface } from "@/component/ui/Primitives";
 import { EmptyState } from "@/component/shared/AppStates";
 
 export default function AdminReportsPage() {

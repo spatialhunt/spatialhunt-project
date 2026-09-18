@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PageHeader } from "@/component/ui/primitives";
+import { PageHeader } from "@/component/ui/Primitives";
 import { ConversationList } from "@/component/messaging/Messaging";
 import { LoadingState } from "@/component/shared/AppStates";
 import { messagingService } from "@/lib/services/messaging.service";

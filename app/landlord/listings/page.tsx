@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { PropertyStatusBadge, VerificationBadge } from "@/component/verification/StatusBadges";
 import { LoadingState, EmptyState } from "@/component/shared/AppStates";
 import { ConfirmationModal } from "@/component/shared/ConfirmationModal";

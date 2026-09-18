@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { ConfirmationModal } from "@/component/shared/ConfirmationModal";
 import { MOCK_USERS } from "@/mocks";
 import type { UserSummary } from "@/lib/types";

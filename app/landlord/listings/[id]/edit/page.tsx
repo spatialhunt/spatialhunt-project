@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { PageHeader, Button } from "@/component/ui/primitives";
+import { PageHeader, Button } from "@/component/ui/Primitives";
 import { ListingWizard } from "@/component/landlord/ListingWizard";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { propertyService } from "@/lib/services/property.service";

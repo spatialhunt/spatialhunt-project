@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
-import { PageHeader } from "@/component/ui/primitives";
+import { PageHeader } from "@/component/ui/Primitives";
 
 const enquiries = [
   {

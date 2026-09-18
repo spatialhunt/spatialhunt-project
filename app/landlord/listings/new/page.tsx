@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PageHeader, Button } from "@/component/ui/primitives";
+import { PageHeader, Button } from "@/component/ui/Primitives";
 import { ListingWizard } from "@/component/landlord/ListingWizard";
 
 export default function NewListingPage() {

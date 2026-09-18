@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button, Input } from "@/component/ui/primitives";
-import { Surface } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
+import { Surface } from "@/component/ui/Primitives";
 import { verificationService } from "@/lib/services/verification.service";
 import { maskNin } from "@/mocks";
 import { SuccessState } from "@/component/shared/AppStates";

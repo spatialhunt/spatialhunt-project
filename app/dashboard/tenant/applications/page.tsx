@@ -1,7 +1,7 @@
 import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { EmptyState } from "@/component/shared/AppStates";
-import { Button, PageHeader } from "@/component/ui/primitives";
+import { Button, PageHeader } from "@/component/ui/Primitives";
 
 export default function ApplicationsPage() {
   return (

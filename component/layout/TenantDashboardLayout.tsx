@@ -6,7 +6,7 @@ import TenantHero from "@/component/tenant-dashboard/TenantHero";
 import TenantSidebar from "@/component/tenant-dashboard/TenantSidebar";
 import { useAuthSession } from "@/lib/use-auth-session";
 import { UnauthorizedState } from "@/component/shared/AppStates";
-import { Button } from "@/component/ui/primitives";
+import { Button } from "@/component/ui/Primitives";
 
 /**
  * Reuses existing tenant chrome (TenantHero + TenantSidebar).

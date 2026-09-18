@@ -1,6 +1,6 @@
 import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
-import { PageHeader, Surface } from "@/component/ui/primitives";
+import { PageHeader, Surface } from "@/component/ui/Primitives";
 
 const helpLinks = [
   {

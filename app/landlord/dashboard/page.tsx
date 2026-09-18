@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { KpiCard } from "@/component/shared/KpiCard";
 import { PropertyStatusBadge, VerificationStatusBadge, InspectionStatusBadge } from "@/component/verification/StatusBadges";
 import { LoadingState } from "@/component/shared/AppStates";

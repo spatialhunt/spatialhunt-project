@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 
 export default function AdminSettingsPage() {
   return (

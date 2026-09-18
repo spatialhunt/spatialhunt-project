@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { PageHeader, Surface, Button, Input } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button, Input } from "@/component/ui/Primitives";
 import { InspectionStatusBadge } from "@/component/verification/StatusBadges";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { inspectionService } from "@/lib/services/inspection.service";

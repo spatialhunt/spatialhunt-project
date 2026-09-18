@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { PageHeader, Surface } from "@/component/ui/primitives";
+import { PageHeader, Surface } from "@/component/ui/Primitives";
 import { VerificationStatusBadge } from "@/component/verification/StatusBadges";
 import { LoadingState } from "@/component/shared/AppStates";
 import { verificationService } from "@/lib/services/verification.service";

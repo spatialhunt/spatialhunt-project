@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Button, Input, Select, Textarea } from "@/component/ui/primitives";
-import { Surface } from "@/component/ui/primitives";
+import { Button, Input, Select, Textarea } from "@/component/ui/Primitives";
+import { Surface } from "@/component/ui/Primitives";
 import { propertyService } from "@/lib/services/property.service";
 import type { Property, PropertyType, PricePeriod } from "@/lib/types";
 import { formatNaira } from "@/mocks";

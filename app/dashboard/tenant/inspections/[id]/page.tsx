@@ -5,7 +5,7 @@ import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { InspectionStatusBadge } from "@/component/verification/StatusBadges";
-import { Button, Input, PageHeader, Surface } from "@/component/ui/primitives";
+import { Button, Input, PageHeader, Surface } from "@/component/ui/Primitives";
 import { MOCK_BOOKINGS } from "@/mocks";
 import { inspectionService } from "@/lib/services/inspection.service";
 import type { Booking, BookingStatus } from "@/lib/types";

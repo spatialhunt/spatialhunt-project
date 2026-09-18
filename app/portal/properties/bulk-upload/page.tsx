@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { EmptyState } from "@/component/shared/AppStates";
 
 export default function PortalBulkUploadPage() {

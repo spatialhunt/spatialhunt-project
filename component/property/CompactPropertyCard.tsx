@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Property } from "@/lib/types";
 import { formatNaira } from "@/mocks";
 import { VerificationBadge } from "@/component/verification/StatusBadges";
-import { Button } from "@/component/ui/primitives";
+import { Button } from "@/component/ui/Primitives";
 
 type Props = {
   property: Property;

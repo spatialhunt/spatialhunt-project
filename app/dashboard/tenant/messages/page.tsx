@@ -2,7 +2,7 @@
 
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { ConversationList } from "@/component/messaging/Messaging";
-import { PageHeader } from "@/component/ui/primitives";
+import { PageHeader } from "@/component/ui/Primitives";
 import { MOCK_CONVERSATIONS } from "@/mocks";
 
 export default function MessagesPage() {

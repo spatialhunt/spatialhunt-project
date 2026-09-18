@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
-import { Button, Input } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail]   = useState("");

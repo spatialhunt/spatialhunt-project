@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { messagingService } from "@/lib/services/messaging.service";
 import { MOCK_CONVERSATIONS } from "@/mocks";

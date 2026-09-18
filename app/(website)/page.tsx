@@ -1,10 +1,10 @@
-import Showcase from "@/component/home/showcase";
-import SalesSection from "@/component/home/sales";
-import HowItWorks from "@/component/home/howitworks";
-import FeatureProperties from "@/component/home/features";
-import Features2 from "@/component/home/features2";
-import LandLord from "@/component/home/landlord";
-import Testimony from "@/component/home/testimony";
+import Showcase from "@/component/home/Showcase";
+import SalesSection from "@/component/home/Sales";
+import HowItWorks from "@/component/home/HowItWorks";
+import FeatureProperties from "@/component/home/Features";
+import Features2 from "@/component/home/Features2";
+import LandLord from "@/component/home/Landlord";
+import Testimony from "@/component/home/Testimony";
 
 export default function Page() {
   return (
