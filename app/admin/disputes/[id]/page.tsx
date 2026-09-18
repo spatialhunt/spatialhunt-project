@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { PageHeader, Surface, Button, Textarea } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button, Textarea } from "@/component/ui/Primitives";
 import { NotFoundState } from "@/component/shared/AppStates";
 import { MOCK_DISPUTES } from "@/mocks";
 

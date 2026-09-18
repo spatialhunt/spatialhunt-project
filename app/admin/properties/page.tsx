@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { PageHeader, Surface } from "@/component/ui/primitives";
+import { PageHeader, Surface } from "@/component/ui/Primitives";
 import { PropertyStatusBadge } from "@/component/verification/StatusBadges";
 import { MOCK_PROPERTIES, formatNaira } from "@/mocks";
 

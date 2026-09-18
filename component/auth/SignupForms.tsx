@@ -7,7 +7,7 @@ import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
 import { ApiError } from "@/lib/services/http";
 import type { Role } from "@/lib/types";
-import { Button, Input } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
 
 /* ─────────────────────────────────────────────
    Role Picker  (/signup)

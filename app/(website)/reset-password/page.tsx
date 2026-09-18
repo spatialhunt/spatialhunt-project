@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { authService } from "@/lib/services/auth.service";
 import { ApiError } from "@/lib/services/http";
-import { Button, Input } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
 
 function ResetPasswordForm() {
   const searchParams = useSearchParams();

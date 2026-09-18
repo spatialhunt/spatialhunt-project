@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PageHeader, Surface, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Button } from "@/component/ui/Primitives";
 import { LoadingState, EmptyState } from "@/component/shared/AppStates";
 import { MOCK_NOTIFICATIONS } from "@/mocks";
 import type { NotificationItem } from "@/lib/types";

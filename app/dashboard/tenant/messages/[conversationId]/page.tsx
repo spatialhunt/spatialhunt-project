@@ -3,7 +3,7 @@
 import { use, useEffect, useState } from "react";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { ChatWindow, ConversationList } from "@/component/messaging/Messaging";
-import { PageHeader } from "@/component/ui/primitives";
+import { PageHeader } from "@/component/ui/Primitives";
 import { MOCK_CONVERSATIONS } from "@/mocks";
 import { messagingService } from "@/lib/services/messaging.service";
 import type { Conversation, Message } from "@/lib/types";

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { SuccessState } from "@/component/shared/AppStates";
-import { Button, Input, PageHeader, Select, Surface } from "@/component/ui/primitives";
+import { Button, Input, PageHeader, Select, Surface } from "@/component/ui/Primitives";
 import type { PropertyType } from "@/lib/types";
 
 const AMENITY_OPTIONS = ["Water", "Security", "Power backup", "Parking", "Kitchen", "Road access"];

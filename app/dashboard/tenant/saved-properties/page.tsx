@@ -5,7 +5,7 @@ import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { CompactPropertyCard } from "@/component/property/CompactPropertyCard";
 import { EmptyState, LoadingState } from "@/component/shared/AppStates";
-import { PageHeader, Button } from "@/component/ui/primitives";
+import { PageHeader, Button } from "@/component/ui/Primitives";
 import { MOCK_PROPERTIES } from "@/mocks";
 import { favoriteService } from "@/lib/services/notification.service";
 import type { Property } from "@/lib/types";

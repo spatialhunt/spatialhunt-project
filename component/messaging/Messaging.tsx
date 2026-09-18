@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Conversation, Message } from "@/lib/types";
-import { Button, Input } from "@/component/ui/primitives";
+import { Button, Input } from "@/component/ui/Primitives";
 import { EmptyState } from "@/component/shared/AppStates";
 
 export function ConversationList({

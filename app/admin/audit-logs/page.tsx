@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { PageHeader, Surface, Input } from "@/component/ui/primitives";
+import { PageHeader, Surface, Input } from "@/component/ui/Primitives";
 import { MOCK_AUDIT_LOGS } from "@/mocks";
 
 export default function AdminAuditLogsPage() {

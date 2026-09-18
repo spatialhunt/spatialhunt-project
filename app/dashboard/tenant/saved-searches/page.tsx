@@ -10,7 +10,7 @@ import {
   PageHeader,
   Select,
   Surface,
-} from "@/component/ui/primitives";
+} from "@/component/ui/Primitives";
 import { MOCK_SAVED_SEARCHES, formatNaira } from "@/mocks";
 import type { PropertyType, SavedSearch } from "@/lib/types";
 

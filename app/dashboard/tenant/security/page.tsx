@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { DeleteConfirmationModal } from "@/component/shared/ConfirmationModal";
-import { Button, Input, PageHeader, Surface } from "@/component/ui/primitives";
+import { Button, Input, PageHeader, Surface } from "@/component/ui/Primitives";
 
 export default function SecurityPage() {
   const [passwordForm, setPasswordForm] = useState({

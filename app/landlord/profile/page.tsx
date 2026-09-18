@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader, Surface, Input, Button } from "@/component/ui/primitives";
+import { PageHeader, Surface, Input, Button } from "@/component/ui/Primitives";
 import { getSession } from "@/lib/auth-client";
 
 export default function LandlordProfilePage() {

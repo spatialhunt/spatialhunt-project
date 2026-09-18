@@ -6,7 +6,7 @@ import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { PaymentTimeline } from "@/component/payment/PaymentTimeline";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { PaymentStatusBadge } from "@/component/verification/StatusBadges";
-import { Button, PageHeader, Surface } from "@/component/ui/primitives";
+import { Button, PageHeader, Surface } from "@/component/ui/Primitives";
 import { MOCK_ESCROWS, formatNaira } from "@/mocks";
 import { paymentService } from "@/lib/services/payment.service";
 import type { EscrowTransaction } from "@/lib/types";

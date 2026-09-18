@@ -1,6 +1,6 @@
 "use client";
 
-import { PageHeader } from "@/component/ui/primitives";
+import { PageHeader } from "@/component/ui/Primitives";
 import { VerificationWizard } from "@/component/landlord/VerificationWizard";
 
 export default function LandlordVerificationPage() {

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { SuccessState } from "@/component/shared/AppStates";
-import { Button, Input, PageHeader, Surface } from "@/component/ui/primitives";
+import { Button, Input, PageHeader, Surface } from "@/component/ui/Primitives";
 
 export default function ProfilePage() {
   const [saved, setSaved] = useState(false);

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import TenantDashboardLayout from "@/component/layout/TenantDashboardLayout";
 import { EmptyState, LoadingState } from "@/component/shared/AppStates";
-import { Button, PageHeader, Surface } from "@/component/ui/primitives";
+import { Button, PageHeader, Surface } from "@/component/ui/Primitives";
 import { MOCK_NOTIFICATIONS } from "@/mocks";
 import { notificationService } from "@/lib/services/notification.service";
 import type { NotificationItem } from "@/lib/types";

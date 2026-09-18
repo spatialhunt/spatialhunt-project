@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import { PageHeader, Button } from "@/component/ui/primitives";
+import { PageHeader, Button } from "@/component/ui/Primitives";
 import { ConversationList, ChatWindow } from "@/component/messaging/Messaging";
 import { LoadingState, NotFoundState } from "@/component/shared/AppStates";
 import { messagingService } from "@/lib/services/messaging.service";

@@ -7,7 +7,7 @@ import { clearSession } from "@/lib/auth-client";
 import { useAuthSession } from "@/lib/use-auth-session";
 import type { Role } from "@/lib/types";
 import { UnauthorizedState } from "@/component/shared/AppStates";
-import { Button } from "@/component/ui/primitives";
+import { Button } from "@/component/ui/Primitives";
 
 type NavItem = { name: string; href: string };
 
