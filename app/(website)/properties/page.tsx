@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
-import Hero from "@/component/properties/Hero";
-import Filter from "@/component/properties/Filter";
-import AllSearch from "@/component/properties/AllSearch";
-import RefineSearch from "@/component/properties/RefineSearch";
-import PropertyResults from "@/component/properties/PropertyResult";
-import Aside from "@/component/properties/Aside";
+import Hero from "@/component/properties/hero";
+import Filter from "@/component/properties/filter";
+import AllSearch from "@/component/properties/allsearch";
+import RefineSearch from "@/component/properties/refinesearch";
+import PropertyResults from "@/component/properties/propertyresult";
+import Aside from "@/component/properties/aside";
 
 function PropertiesContent() {
   return (
