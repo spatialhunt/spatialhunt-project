@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const stats = [
   { icon: "/bi_people.svg",            value: "2,000+", label: "Happy Renters" },
   { icon: "/verifyproperty.svg",       value: "500+",   label: "Verified Properties" },
@@ -17,7 +15,7 @@ export default function Features2() {
           <div className="w-full lg:w-1/2">
             <div className="flex items-start gap-5">
               <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/15">
-                <Image src="/gicon.svg" alt="verified" width={36} height={36} unoptimized />
+                <img src="/gicon.svg" alt="verified" width={36} height={36} loading="lazy" />
               </div>
               <div>
                 <h2 className="text-2xl font-extrabold text-white md:text-3xl">
@@ -39,7 +37,7 @@ export default function Features2() {
                   className="flex flex-col items-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-4 py-5 text-center backdrop-blur-sm"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F4B940]/20">
-                    <Image src={s.icon} alt="" width={22} height={22} unoptimized />
+                    <img src={s.icon} alt="" width={22} height={22} loading="lazy" />
                   </div>
                   <span className="text-xl font-extrabold text-[#F4B940]">{s.value}</span>
                   <span className="text-xs font-semibold text-white/70">{s.label}</span>
@@ -50,13 +48,11 @@ export default function Features2() {
 
           {/* Right image */}
           <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
-            <Image
+            <img
               src="/feature2img.svg"
               alt="Verification process"
-              width={520}
-              height={420}
               className="h-auto w-full max-w-[440px] lg:max-w-[520px]"
-              unoptimized
+              loading="lazy"
             />
           </div>
         </div>

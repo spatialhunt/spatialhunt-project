@@ -6,23 +6,58 @@ import RefineSearch from "@/component/properties/RefineSearch";
 import PropertyResults from "@/component/properties/PropertyResult";
 import Aside from "@/component/properties/Aside";
 
+/**
+ * /properties — public listing search page.
+ *
+ * Column layout
+ * ─────────────
+ * xs – md   : single column stacked
+ *             [Filter] → [AllSearch] → [RefineSearch toggle] → [Results]
+ *             Aside hidden
+ *
+ * lg         : 2 columns
+ *             [RefineSearch sidebar 235px] | [Results]
+ *             Aside still hidden (not enough room for 3 cols)
+ *
+ * xl (1280+) : 3 columns
+ *             [RefineSearch 255px] | [Results flex-1] | [Aside 232px]
+ */
 function PropertiesContent() {
   return (
     <main className="w-full">
+
+      {/* top hero bar + search pill */}
       <Hero />
       <Filter />
       <AllSearch />
-      <div className="mx-auto w-full max-w-7xl px-4 pb-10 sm:px-6 md:px-8 lg:px-10 xl:px-12">
-        <div className="flex w-full flex-col gap-6 lg:flex-row lg:items-start lg:gap-4 xl:gap-5">
+
+      {/* body: sidebar + results + aside */}
+      <div className="mx-auto w-full max-w-7xl px-4 pb-12 sm:px-6 md:px-8 lg:px-10 xl:px-12">
+        <div className="flex w-full flex-col gap-5 lg:flex-row lg:items-start lg:gap-5">
+
+          {/* ── sidebar (RefineSearch) ─────────────────────────────────────
+               On mobile → collapsible toggle inside RefineSearch itself.
+               On lg+    → sticky panel, fixed width.
+          ────────────────────────────────────────────────────────────────── */}
           <div className="w-full shrink-0 lg:w-[235px] xl:w-[255px]">
             <RefineSearch />
           </div>
-          <div className="min-w-0 w-full lg:flex-2">
+
+          {/* ── results column ──────────────────────────────────────────── */}
+          <div className="min-w-0 flex-1">
             <PropertyResults />
           </div>
-          <Aside />
+
+          {/* ── aside (Why Choose + Did You Know) ─────────────────────────
+               Hidden below xl to avoid crowding the results column.
+          ────────────────────────────────────────────────────────────────── */}
+          <div className="hidden xl:block xl:w-[232px] xl:shrink-0">
+            <Aside />
+          </div>
+
         </div>
       </div>
+
     </main>
   );
 }
@@ -31,7 +66,9 @@ const Properties = () => {
   return (
     <Suspense
       fallback={
-        <div className="py-16 text-center text-sm text-[#777777]">Loading properties…</div>
+        <div className="flex min-h-[40vh] items-center justify-center py-16 text-sm text-[#777777]">
+          Loading properties…
+        </div>
       }
     >
       <PropertiesContent />

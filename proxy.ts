@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 // Routes that require authentication (prefix-matched)
-const PROTECTED_PREFIXES = ["/dashboard", "/landlord", "/admin", "/list-property", "/logout"];
+const PROTECTED_PREFIXES = ["/dashboard", "/landlord", "/admin", "/hunter", "/list-property", "/logout"];
 
 // Routes only accessible when NOT signed in
-const AUTH_ONLY_ROUTES   = ["/login", "/signup", "/forgot-password", "/reset-password"];
+const AUTH_ONLY_ROUTES = ["/login", "/signup", "/forgot-password", "/reset-password"];
 
 /**
  * NOTE ON SESSION STORAGE:
@@ -14,8 +14,8 @@ const AUTH_ONLY_ROUTES   = ["/login", "/signup", "/forgot-password", "/reset-pas
  * server-side route protection requires setting an httpOnly cookie on login.
  *
  * Current approach:
- * - Client-side guards in each dashboard layout (check useAuthSession())
- * - Middleware blocks /admin/* when there is no sh_token cookie
+ * - Client-side guards in each dashboard layout (useAuthSession())
+ * - Proxy hard-blocks /admin/* when there is no sh_token cookie
  * - When a future login endpoint sets httpOnly sh_token cookie, extend the
  *   token-check logic below to cover all PROTECTED_PREFIXES.
  */
@@ -23,7 +23,7 @@ function getToken(req: NextRequest): string | null {
   return req.cookies.get("sh_token")?.value ?? null;
 }
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Always allow API routes through
@@ -52,6 +52,7 @@ export const config = {
     "/dashboard/:path*",
     "/landlord/:path*",
     "/admin/:path*",
+    "/hunter/:path*",
     "/list-property/:path*",
     "/logout",
     "/login",

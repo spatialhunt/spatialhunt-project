@@ -167,6 +167,19 @@ const portalNav: NavItem[] = [
   { name: "Settings", href: "/portal/settings" },
 ];
 
+const hunterNav: NavItem[] = [
+  { name: "Dashboard", href: "/hunter/dashboard" },
+  { name: "My Leads", href: "/hunter/leads" },
+  { name: "My Matches", href: "/hunter/matches" },
+  { name: "Browse Listings", href: "/hunter/listings" },
+  { name: "Earnings", href: "/hunter/earnings" },
+  { name: "Tenants", href: "/hunter/tenants" },
+  { name: "Messages", href: "/hunter/messages" },
+  { name: "Notifications", href: "/hunter/notifications" },
+  { name: "Profile", href: "/hunter/profile" },
+  { name: "Settings", href: "/hunter/settings" },
+];
+
 export function LandlordLayout({ children }: { children: ReactNode }) {
   return (
     <AppShell
@@ -200,6 +213,19 @@ export function PortalLayout({ children }: { children: ReactNode }) {
       title="Property Manager Portal"
       nav={portalNav}
       requiredRoles={["LANDLORD", "ADMIN"]}
+    >
+      {children}
+    </AppShell>
+  );
+}
+
+export function HunterLayout({ children }: { children: ReactNode }) {
+  return (
+    <AppShell
+      brandHref="/hunter/dashboard"
+      title="Hunter Portal"
+      nav={hunterNav}
+      requiredRoles={["HUNTER", "ADMIN"]}
     >
       {children}
     </AppShell>

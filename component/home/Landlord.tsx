@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const benefits = [
   "Thousands of landlords are getting quality, verified tenants with SpatialHunt.",
@@ -26,14 +25,7 @@ export default function LandLord() {
 
           {/* Left image */}
           <div className="w-full overflow-hidden rounded-2xl shadow-md lg:w-[36%]">
-            <Image
-              src="/landlordimg.svg"
-              alt="Landlord smiling"
-              width={500}
-              height={400}
-              className="h-full w-full object-cover"
-              unoptimized
-            />
+            <img src="/landlordimg.svg" alt="Landlord smiling" className="h-full w-full object-cover" loading="lazy" />
           </div>
 
           {/* Centre text */}
@@ -45,7 +37,7 @@ export default function LandLord() {
             <Link href="/list-property">
               <button className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#F4B942] px-7 py-3 text-sm font-bold text-[#1E5A4F] shadow-md transition-all duration-200 hover:bg-[#e0a830] hover:shadow-lg active:scale-95">
                 List Your Property Now
-                <Image src="/arrow.svg" alt="" width={16} height={16} unoptimized />
+                <img src="/arrow.svg" alt="" width={16} height={16} loading="lazy" />
               </button>
             </Link>
           </div>
@@ -57,14 +49,14 @@ export default function LandLord() {
             <div className="rounded-2xl border border-[#E8E8E8] bg-white p-6 shadow-sm">
               <div className="mb-4 flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1E5A4F]/10">
-                  <Image src="/why.svg" alt="" width={22} height={22} unoptimized />
+                  <img src="/why.svg" alt="" width={22} height={22} loading="lazy" />
                 </div>
                 <h3 className="font-bold text-[#1E5A4F]">Why SpatialHunt?</h3>
               </div>
               <ul className="flex flex-col gap-3">
                 {benefits.map((b) => (
                   <li key={b} className="flex items-start gap-2.5 text-sm text-[#555]">
-                    <Image src="/greengood.svg" alt="✓" width={18} height={18} className="mt-0.5 shrink-0" unoptimized />
+                    <img src="/greengood.svg" alt="✓" width={18} height={18} className="mt-0.5 shrink-0" loading="lazy" />
                     {b}
                   </li>
                 ))}
@@ -73,14 +65,7 @@ export default function LandLord() {
 
             {/* Right image */}
             <div className="overflow-hidden rounded-2xl shadow-md">
-              <Image
-                src="/landlord2.svg"
-                alt="Happy tenants"
-                width={480}
-                height={200}
-                className="h-auto w-full object-cover"
-                unoptimized
-              />
+              <img src="/landlord2.svg" alt="Happy tenants" className="h-auto w-full object-cover" loading="lazy" />
             </div>
           </div>
         </div>
