@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 
 const testimonials = [
   {
@@ -51,13 +50,13 @@ function Card({ t, active }: { t: (typeof testimonials)[0]; active?: boolean }) 
       <StarRow count={t.stars} />
       <p className="mt-4 flex-1 text-sm leading-7 text-[#555]">"{t.text}"</p>
       <div className="mt-5 flex items-center gap-3 border-t border-[#F5F5F5] pt-4">
-        <Image
+        <img
           src={t.avatar}
           alt={t.name}
           width={42}
           height={42}
           className="rounded-full object-cover ring-2 ring-[#F4B940]/30"
-          unoptimized
+          loading="lazy"
         />
         <div>
           <p className="text-sm font-bold text-[#2E2E2E]">{t.name}</p>

@@ -1,33 +1,217 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   Single source of truth for the SpatialHunt palette.
+   All components read from these variables so a future dark-mode
+   theme only needs to override this block.
+───────────────────────────────────────────────────────────────────────────── */
 :root {
-    --background: #ffffff;
-    --foreground: #2E2E2E;
+  /* Brand */
+  --sh-green:        #1E5A4F;
+  --sh-green-hover:  #17483F;
+  --sh-green-light:  #EAF3F0;
+  --sh-green-mid:    #F1F7F5;
+  --sh-amber:        #F4B942;
+  --sh-amber-light:  #FFF6D9;
+  --sh-amber-border: #F0D9A8;
+
+  /* Text */
+  --sh-text:         #2E2E2E;
+  --sh-muted:        #777777;
+  --sh-subtle:       #AAAAAA;
+
+  /* Surfaces */
+  --sh-bg:           #FFFFFF;
+  --sh-surface:      #FAFAF8;
+  --sh-surface-alt:  #F7F7F7;
+
+  /* Borders */
+  --sh-border:       #EEEEEE;
+  --sh-border-mid:   #DDDDDD;
+  --sh-border-dark:  #D9D9D9;
+
+  /* Semantic */
+  --sh-success:      #117E25;
+  --sh-success-bg:   #DDF2E4;
+  --sh-warn:         #C99A20;
+  --sh-warn-bg:      #FFF6D9;
+  --sh-danger:       #B42318;
+
+  /* Scrollbar */
+  --sh-scroll-thumb: #C8D9D6;
+  --sh-scroll-track: #F1F7F5;
+
+  /* Transitions */
+  --sh-transition: 200ms ease;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESET / BASE
+───────────────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    color-scheme: light;
+  /* Force light rendering — no OS dark-mode bleed */
+  color-scheme: light;
+  /* Silky scroll on anchor jumps */
+  scroll-behavior: smooth;
+  /* Prevent iOS text-size-adjust on rotation */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Consistent font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html,
-body{
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background: #ffffff;
-    color: #2e2e2e;
+body {
+  min-height: 100%;
+  min-height: 100dvh;           /* dynamic viewport on mobile browsers */
+  background: var(--sh-bg);
+  color: var(--sh-text);
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   TYPOGRAPHY DEFAULTS
+───────────────────────────────────────────────────────────────────────────── */
 body {
-    * {
-        box-sizing: border-box;
-    }
-    img {
-        max-width: 100%;
-    }
+  font-family: var(--font-manrope, system-ui, sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+}
 
-    button,
-    a {
-        -webkit-tap-highlight-color: transparent;
-    }
+/* Fluid base font: 14 px on small phones → 16 px at ≥ 1280 px */
+@media (max-width: 639px) {
+  html { font-size: 14px; }
+}
+@media (min-width: 640px) and (max-width: 1279px) {
+  html { font-size: 15px; }
+}
+@media (min-width: 1280px) {
+  html { font-size: 16px; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MEDIA DEFAULTS
+───────────────────────────────────────────────────────────────────────────── */
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   INTERACTIVE DEFAULTS
+───────────────────────────────────────────────────────────────────────────── */
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FOCUS STYLES
+   Visible ring for keyboard users; hidden for mouse/touch (focus-visible).
+───────────────────────────────────────────────────────────────────────────── */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sh-green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CUSTOM SCROLLBAR  (Chromium / Safari)
+───────────────────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--sh-scroll-track);
+  border-radius: 100px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--sh-scroll-thumb);
+  border-radius: 100px;
+  transition: background var(--sh-transition);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--sh-green);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--sh-scroll-thumb) var(--sh-scroll-track);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SELECTION
+───────────────────────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--sh-green-light);
+  color: var(--sh-green);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTILITY: PREVENT OVERFLOW BLOWOUT ON SMALL SCREENS
+───────────────────────────────────────────────────────────────────────────── */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PROSE / CONTENT TABLES
+───────────────────────────────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   REDUCED-MOTION ACCESSIBILITY
+───────────────────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PRINT
+───────────────────────────────────────────────────────────────────────────── */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  a {
+    text-decoration: underline;
+    color: black;
+  }
 }

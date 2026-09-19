@@ -9,6 +9,9 @@ import type {
   Verification,
   Dispute,
   AuditLogEntry,
+  HunterProfile,
+  HunterMatch,
+  HunterLead,
 } from "@/lib/types";
 
 /**
@@ -250,3 +253,116 @@ export function formatNaira(amount: number | string): string {
     maximumFractionDigits: 0,
   }).format(n);
 }
+
+// ─── Hunter mock data ─────────────────────────────────────────────────────────
+
+export const MOCK_HUNTER_PROFILE: HunterProfile = {
+  id: "hunter-1",
+  userId: "hunter-user-1",
+  status: "ACTIVE",
+  tier: "PRO",
+  commissionRate: 5,
+  totalEarnings: 485000,
+  pendingEarnings: 125000,
+  successfulMatches: 14,
+  activeLeads: 7,
+  joinedAt: "2026-03-15T08:00:00Z",
+  bio: "Specialist in Lekki, Yaba, and Surulere rentals. 3 years connecting tenants to verified landlords.",
+  coverageAreas: ["Lekki", "Yaba", "Surulere", "Ikeja"],
+};
+
+export const MOCK_HUNTER_MATCHES: HunterMatch[] = [
+  {
+    id: "hm-1",
+    hunterId: "hunter-1",
+    tenantId: "tenant-1",
+    propertyId: "mock-lekki-2bed",
+    status: "COMMISSION_PAID",
+    commissionAmount: 125000,
+    tenantName: "Adewale O.",
+    propertyTitle: "2 Bedroom Apartment",
+    propertyCity: "Lekki, Lagos",
+    createdAt: "2026-08-10T09:00:00Z",
+    updatedAt: "2026-08-25T14:00:00Z",
+  },
+  {
+    id: "hm-2",
+    hunterId: "hunter-1",
+    tenantId: "tenant-2",
+    propertyId: "mock-ikeja-3bed",
+    status: "LEASE_SIGNED",
+    commissionAmount: 225000,
+    tenantName: "Funmi B.",
+    propertyTitle: "3 Bedroom Duplex",
+    propertyCity: "Ikeja, Lagos",
+    createdAt: "2026-09-02T11:00:00Z",
+    updatedAt: "2026-09-14T10:00:00Z",
+  },
+  {
+    id: "hm-3",
+    hunterId: "hunter-1",
+    tenantId: "tenant-3",
+    propertyId: "mock-yaba-mini",
+    status: "CONNECTED",
+    tenantName: "Kelechi M.",
+    propertyTitle: "Mini Flat near UNILAG",
+    propertyCity: "Yaba, Lagos",
+    createdAt: "2026-09-10T08:30:00Z",
+    updatedAt: "2026-09-15T09:00:00Z",
+  },
+  {
+    id: "hm-4",
+    hunterId: "hunter-1",
+    tenantId: "tenant-4",
+    propertyId: "mock-lekki-2bed",
+    status: "PENDING",
+    tenantName: "Ngozi A.",
+    propertyTitle: "2 Bedroom Apartment",
+    propertyCity: "Lekki, Lagos",
+    createdAt: "2026-09-16T15:00:00Z",
+  },
+];
+
+export const MOCK_HUNTER_LEADS: HunterLead[] = [
+  {
+    id: "hl-1",
+    hunterId: "hunter-1",
+    tenantName: "David K.",
+    tenantEmail: "david.k@example.com",
+    tenantPhone: "+234 801 234 5678",
+    budget: 1200000,
+    location: "Yaba, Lagos",
+    propertyType: "APARTMENT",
+    bedrooms: 1,
+    notes: "Student, needs to be close to UNILAG campus.",
+    status: "VIEWING_SCHEDULED",
+    createdAt: "2026-09-12T10:00:00Z",
+  },
+  {
+    id: "hl-2",
+    hunterId: "hunter-1",
+    tenantName: "Amaka T.",
+    tenantEmail: "amaka.t@example.com",
+    budget: 2500000,
+    location: "Lekki Phase 1, Lagos",
+    propertyType: "APARTMENT",
+    bedrooms: 2,
+    notes: "Young professional, needs power backup + parking.",
+    status: "CONTACTED",
+    createdAt: "2026-09-14T14:00:00Z",
+  },
+  {
+    id: "hl-3",
+    hunterId: "hunter-1",
+    tenantName: "Emeka R.",
+    tenantEmail: "emeka.r@example.com",
+    tenantPhone: "+234 802 987 6543",
+    budget: 4000000,
+    location: "Ikeja GRA, Lagos",
+    propertyType: "HOUSE",
+    bedrooms: 3,
+    notes: "Family of four, top priority is security and estate living.",
+    status: "NEW",
+    createdAt: "2026-09-17T08:00:00Z",
+  },
+];
