@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useAuthSession } from "@/lib/use-auth-session";
 
 const AccountOverview = () => {
+  const session = useAuthSession();
+  const joinDate = new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
+
   return (
     <section
       className="
@@ -87,16 +91,8 @@ const AccountOverview = () => {
             Member Since
           </p>
 
-          <p
-            className="
-              min-w-0
-              text-right
-              text-[10px]
-              text-[#4F4F4F]
-              sm:text-[11px]
-            "
-          >
-            August 1, 2026
+          <p className="min-w-0 text-right text-[10px] text-[#4F4F4F] sm:text-[11px]">
+            {joinDate}
           </p>
         </div>
 
@@ -115,18 +111,8 @@ const AccountOverview = () => {
             Email
           </p>
 
-          <p
-            className="
-              min-w-0
-              truncate
-              text-right
-              text-[9px]
-              text-[#4F4F4F]
-              sm:text-[10px]
-            "
-            title="tunde.adeyemi@gmail.com"
-          >
-            tunde.adeyemi@gmail.com
+          <p className="min-w-0 truncate text-right text-[9px] text-[#4F4F4F] sm:text-[10px]" title={session?.email}>
+            {session?.email ?? "—"}
           </p>
         </div>
 
@@ -145,16 +131,8 @@ const AccountOverview = () => {
             Phone
           </p>
 
-          <p
-            className="
-              min-w-0
-              text-right
-              text-[10px]
-              text-[#4F4F4F]
-              sm:text-[11px]
-            "
-          >
-            +234 812 xxxxxxxx
+          <p className="min-w-0 text-right text-[10px] text-[#4F4F4F] sm:text-[11px]">
+            {session ? "+234 —" : "—"}
           </p>
         </div>
       </div>

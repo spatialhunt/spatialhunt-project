@@ -1,47 +1,27 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useAuthSession } from "@/lib/use-auth-session";
 
 const stats = [
-  {
-    title: "Saved Properties",
-    value: "12",
-    icon: "/savedproperties2.svg",
-    href: "/dashboard/tenant/saved-properties",
-  },
-  {
-    title: "Active Enquiries",
-    value: "5",
-    icon: "/enquiries.svg",
-    href: "/dashboard/tenant/enquiries",
-  },
-  {
-    title: "Applications",
-    value: "3",
-    icon: "/application2.svg",
-    href: "/dashboard/tenant/applications",
-  },
-  {
-    title: "Messages",
-    value: "4",
-    icon: "/message2.svg",
-    href: "/dashboard/tenant/messages",
-  },
-  {
-    title: "Rent Payments",
-    value: "2",
-    icon: "/payment2.svg",
-    href: "/dashboard/tenant/payments",
-  },
+  { title: "Saved Properties", value: "0", icon: "/savedproperties2.svg", href: "/dashboard/tenant/saved-properties" },
+  { title: "Active Enquiries", value: "0", icon: "/enquiries.svg",         href: "/dashboard/tenant/enquiries" },
+  { title: "Applications",     value: "0", icon: "/application2.svg",      href: "/dashboard/tenant/applications" },
+  { title: "Messages",         value: "0", icon: "/message2.svg",          href: "/dashboard/tenant/messages" },
+  { title: "Rent Payments",    value: "0", icon: "/payment2.svg",          href: "/dashboard/tenant/payments" },
 ];
 
 export default function DashboardStats() {
+  const session = useAuthSession();
+  const firstName = session?.fullName?.split(" ")[0] ?? "there";
   return (
     <section className="w-full min-w-0">
       {/* ================= WELCOME TEXT ================= */}
       <div className="bg-[#FAFAF8]">
         <div className="mb-4">
         <h1 className="text-lg font-semibold text-[#000000] sm:text-xl">
-          Welcome back, Tunde!
+          Welcome back, {firstName}!
         </h1>
 
         <p className="mt-1 font-bold text-sm text-[#000000]">
