@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const propertyTypes = ["All Types", "2 Bedroom Apartment", "Mini Flat", "3 Bedroom Flat", "4 Bedroom Duplex", "Luxury Condo"];
@@ -53,7 +52,7 @@ export default function SalesSection() {
           <div className="flex min-w-0 flex-[1.8] flex-col justify-center gap-1 px-5 py-4">
             <label className="text-[11px] font-bold uppercase tracking-wider text-[#999]">Location</label>
             <div className="flex items-center gap-2">
-              <Image src="/location.svg" alt="" width={16} height={16} unoptimized className="shrink-0 opacity-60" />
+              <img src="/location.svg" alt="" width={16} height={16} className="shrink-0 opacity-60" />
               <input
                 type="text"
                 value={location}
@@ -75,7 +74,7 @@ export default function SalesSection() {
                 className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
                 {propertyTypes.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+              <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
             </div>
           </div>
 
@@ -89,7 +88,7 @@ export default function SalesSection() {
                 className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
                 {priceRanges.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+              <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
             </div>
           </div>
 
@@ -103,7 +102,7 @@ export default function SalesSection() {
                 className="w-full appearance-none bg-transparent pr-5 text-sm text-[#2E2E2E] outline-none">
                 {bedroomOpts.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
+              <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 opacity-50" />
             </div>
           </div>
 
@@ -120,7 +119,7 @@ export default function SalesSection() {
         <div className="flex flex-col gap-3 md:hidden">
           {/* Location */}
           <div className="flex h-12 items-center gap-3 rounded-xl bg-white px-4 shadow-sm">
-            <Image src="/location.svg" alt="" width={16} height={16} unoptimized className="shrink-0 opacity-50" />
+            <img src="/location.svg" alt="" width={16} height={16} className="shrink-0 opacity-50" />
             <input type="text" value={location} onChange={(e) => setLocation(e.target.value)}
               placeholder="Where are you looking?"
               className="w-full bg-transparent text-sm outline-none placeholder:text-[#bbb]" />
@@ -133,7 +132,7 @@ export default function SalesSection() {
                 className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
                 {propertyTypes.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+              <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
             </div>
             {/* Price */}
             <div className="relative flex h-12 items-center rounded-xl bg-white px-4 shadow-sm">
@@ -141,7 +140,7 @@ export default function SalesSection() {
                 className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
                 {priceRanges.map((o) => <option key={o}>{o}</option>)}
               </select>
-              <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+              <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
             </div>
           </div>
 
@@ -151,7 +150,7 @@ export default function SalesSection() {
               className="w-full appearance-none bg-transparent text-sm text-[#2E2E2E] outline-none">
               {bedroomOpts.map((o) => <option key={o}>{o}</option>)}
             </select>
-            <Image src="/dropdown.svg" alt="" width={14} height={14} unoptimized className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
+            <img src="/dropdown.svg" alt="" width={14} height={14} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 opacity-50" />
           </div>
 
           <button onClick={handleSearch}

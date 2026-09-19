@@ -5,15 +5,9 @@ import Link from "next/link";
 
 const Aside = () => {
   return (
-    <aside
-      className="
-        w-full
-        shrink-0
-
-        lg:w-[220px]
-        xl:w-[232px]
-      "
-    >
+    <aside className="w-full xl:w-[232px] xl:shrink-0">
+      {/* sticky wrapper so the aside scrolls with the page but stays visible */}
+      <div className="xl:sticky xl:top-4">
       {/* ================================================= */}
       {/* WHY CHOOSE SPATIALHUNT */}
       {/* ================================================= */}
@@ -472,6 +466,7 @@ const Aside = () => {
           It&apos;s free, easy and takes less than 5 minutes.
         </p>
       </div>
+      </div>{/* /sticky wrapper */}
     </aside>
   );
 };

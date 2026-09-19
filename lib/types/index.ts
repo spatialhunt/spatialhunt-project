@@ -4,7 +4,7 @@
  * Do not invent fields that contradict the backend.
  */
 
-export type Role = "TENANT" | "LANDLORD" | "ADMIN";
+export type Role = "TENANT" | "LANDLORD" | "ADMIN" | "HUNTER";
 
 export type PropertyType = "SINGLE_ROOM" | "APARTMENT" | "HOUSE";
 
@@ -194,5 +194,55 @@ export interface AuditLogEntry {
   entityType: string;
   entityId: string;
   metadata?: Record<string, unknown> | null;
+  createdAt: string;
+}
+
+// ─── Hunter types ─────────────────────────────────────────────────────────────
+
+export type HunterStatus = "PENDING" | "ACTIVE" | "SUSPENDED";
+export type HunterTier = "STARTER" | "PRO" | "ELITE";
+export type HunterMatchStatus = "PENDING" | "CONNECTED" | "LEASE_SIGNED" | "COMMISSION_PAID" | "CANCELLED";
+
+export interface HunterProfile {
+  id: string;
+  userId: string;
+  status: HunterStatus;
+  tier: HunterTier;
+  commissionRate: number; // percentage e.g. 5 = 5%
+  totalEarnings: number;
+  pendingEarnings: number;
+  successfulMatches: number;
+  activeLeads: number;
+  joinedAt: string;
+  bio?: string;
+  coverageAreas: string[]; // e.g. ["Lekki", "Yaba"]
+}
+
+export interface HunterMatch {
+  id: string;
+  hunterId: string;
+  tenantId: string;
+  propertyId: string;
+  status: HunterMatchStatus;
+  commissionAmount?: number;
+  tenantName?: string;
+  propertyTitle?: string;
+  propertyCity?: string;
+  createdAt: string;
+  updatedAt?: string;
+}
+
+export interface HunterLead {
+  id: string;
+  hunterId: string;
+  tenantName: string;
+  tenantEmail: string;
+  tenantPhone?: string;
+  budget: number;
+  location: string;
+  propertyType?: PropertyType;
+  bedrooms?: number;
+  notes?: string;
+  status: "NEW" | "CONTACTED" | "VIEWING_SCHEDULED" | "OFFER_MADE" | "CONVERTED" | "LOST";
   createdAt: string;
 }
