@@ -35,8 +35,8 @@ export default function Showcase() {
   }, [next]);
 
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col-reverse items-center gap-8 px-5 pb-6 pt-8 md:flex-row md:gap-10 md:px-10 lg:px-16 xl:px-20">
+    <section className="w-full overflow-x-hidden bg-white">
+      <div className="mx-auto flex w-full max-w-[1400px] flex-col-reverse items-center gap-8 px-5 pb-6 pt-10 md:flex-row md:gap-10 md:px-10 lg:px-16 xl:px-20">
 
         {/* ── LEFT: headline + CTAs ─────────────────────────────────────── */}
         <div className="flex w-full flex-col md:w-[52%]">

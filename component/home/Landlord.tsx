@@ -12,13 +12,13 @@ export default function LandLord() {
       <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
 
         {/* Section label */}
-        <div className="mb-10 text-center">
-          <span className="inline-block rounded-full bg-[#F4B940]/15 px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#F4B940]">
-            Are you a Landlord?
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold text-[#1E5A4F] md:text-3xl">
-            List your Property and get quality tenants faster
+        <div className="mb-8 text-left">
+          <h2 className="text-xl font-bold text-[#2E2E2E] md:text-2xl">
+            ARE YOU A LANDLORD?
           </h2>
+          <p className="mt-1 text-base font-bold text-[#1E5A4F]">
+            List your Property and get quality tenants faster
+          </p>
         </div>
 
         <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-stretch lg:gap-6">

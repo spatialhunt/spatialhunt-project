@@ -8,7 +8,7 @@ import Testimony from "@/component/home/Testimony";
 
 export default function Page() {
   return (
-    <main className="w-full overflow-x-hidden">
+    <>
       <Showcase />
       <SalesSection />
       <HowItWorks />
@@ -16,6 +16,6 @@ export default function Page() {
       <Features2 />
       <LandLord />
       <Testimony />
-    </main>
+    </>
   );
 }

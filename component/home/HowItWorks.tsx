@@ -32,10 +32,10 @@ export default function HowItWorks() {
       <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
 
         <div className="mb-10 text-center md:text-left">
-          <span className="inline-block rounded-full bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-widest text-[#F4B940]">
-            How It Works
-          </span>
-          <h2 className="mt-3 text-2xl font-extrabold text-white md:text-3xl">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#F4B940]">
+            HOW IT WORKS
+          </p>
+          <h2 className="mt-2 text-2xl font-extrabold text-white md:text-3xl">
             Find or list your property in{" "}
             <span className="text-[#F4B940]">3 simple steps</span>
           </h2>
@@ -47,7 +47,7 @@ export default function HowItWorks() {
             {steps.map((s) => (
               <div
                 key={s.step}
-                className="relative flex flex-1 flex-col gap-3 rounded-2xl border border-white/10 bg-white/8 p-6"
+                className="relative flex flex-1 flex-col gap-3 rounded-2xl border border-white/10 bg-white/[0.08] p-6"
               >
                 <span className="absolute -top-3 left-5 rounded-full bg-[#F4B940] px-2.5 py-0.5 text-xs font-extrabold text-[#1E5A4F]">
                   {s.step}
@@ -63,7 +63,7 @@ export default function HowItWorks() {
 
           {/* Why SpatialHunt */}
           <div className="flex flex-col gap-6 lg:w-[42%] lg:flex-row">
-            <div className="flex-1 rounded-2xl border border-white/10 bg-white/8 p-6">
+            <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.08] p-6">
               <h3 className="mb-5 text-lg font-bold text-[#F4B940]">Why SpatialHunt?</h3>
               <ul className="flex flex-col gap-4">
                 {why.map((w) => (
