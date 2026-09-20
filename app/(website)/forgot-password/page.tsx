@@ -59,8 +59,7 @@ export default function ForgotPasswordPage() {
   return (
     <div className="mx-auto w-full max-w-md px-4 py-12 sm:py-16">
       <div className="mb-8 text-center">
-        <Image src="/SH-LOGO.svg" alt="SpatialHunt" width={56} height={68} className="mx-auto" unoptimized />
-        <h1 className="mt-5 text-2xl font-extrabold text-[#2E2E2E]">Forgot your password?</h1>
+        <h1 className="text-2xl font-extrabold text-[#2E2E2E]">Forgot your password?</h1>
         <p className="mt-2 text-sm text-[#777]">
           Enter the email address on your SpatialHunt account and we'll send you a reset link.
         </p>
