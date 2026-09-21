@@ -173,10 +173,11 @@ button:disabled {
 
 /* ─────────────────────────────────────────────────────────────────────────────
    UTILITY: PREVENT OVERFLOW BLOWOUT ON SMALL SCREENS
+   NOTE: overflow-x: hidden on body breaks position: sticky in children.
+   Use overflow-x: clip instead which doesn't create a new stacking context.
 ───────────────────────────────────────────────────────────────────────────── */
-html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
 }
 
