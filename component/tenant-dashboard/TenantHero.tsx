@@ -3,6 +3,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useAuthSession } from "@/lib/use-auth-session";
 
 const locations = [
   "Lagos, Nigeria",
@@ -15,6 +17,12 @@ const locations = [
 ];
 
 export default function TenantHero() {
+  const session = useAuthSession();
+  const firstName = session?.fullName?.split(" ")[0] ?? "User";
+  const initials = session?.fullName
+    ? session.fullName.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()
+    : "U";
+
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("Lagos, Nigeria");
   const [locationOpen, setLocationOpen] = useState(false);
@@ -61,7 +69,7 @@ export default function TenantHero() {
       >
         {/* ================= LOGO ================= */}
 
-        <div className="flex shrink-0 items-center">
+        <Link href="/" className="flex shrink-0 items-center">
           <Image
             src="/SH-LOGO.svg"
             alt="SpatialHunt Logo"
@@ -83,7 +91,7 @@ export default function TenantHero() {
             <span className="text-[#F4B942]">SPATIAL</span>
             <span className="text-[#1E5A4F]">HUNT</span>
           </h1>
-        </div>
+        </Link>
 
         {/* ================= SEARCH SECTION ================= */}
 
@@ -449,24 +457,10 @@ export default function TenantHero() {
               sm:gap-2
             "
           >
-            {/* Avatar */}
-
-            <Image
-              src="/tunde.svg"
-              alt="Tunde Adeyemi"
-              width={38}
-              height={38}
-              className="
-                h-[29px]
-                w-[29px]
-                rounded-full
-                object-cover
-                sm:h-[34px]
-                sm:w-[34px]
-                md:h-[36px]
-                md:w-[36px]
-              "
-            />
+            {/* Avatar — initials fallback since no profile photo yet */}
+            <div className="flex h-[29px] w-[29px] shrink-0 items-center justify-center rounded-full bg-[#1E5A4F] text-xs font-bold text-white sm:h-[34px] sm:w-[34px] md:h-[36px] md:w-[36px]">
+              {initials}
+            </div>
 
             {/* ================= USER INFORMATION ================= */}
 
@@ -487,7 +481,7 @@ export default function TenantHero() {
                     text-[#2E2E2E]
                   "
                 >
-                  Tunde A.
+                  {firstName}
                 </span>
 
                 <Image

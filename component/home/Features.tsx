@@ -54,14 +54,11 @@ export default function FeatureProperties() {
       <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
         <div className="mb-8 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <span className="text-xs font-bold uppercase tracking-widest text-[#F4B940]">
-              Handpicked for you
-            </span>
-            <h2 className="mt-1 text-2xl font-extrabold text-[#1E5A4F] md:text-3xl">
-              Featured Properties
+            <h2 className="text-xl font-bold text-[#1E5A4F] sm:text-2xl">
+              FEATURED PROPERTIES
             </h2>
           </div>
-          <Link href="/properties" className="mt-2 self-start rounded-lg border border-[#1E5A4F] px-4 py-2 text-sm font-bold text-[#1E5A4F] transition hover:bg-[#1E5A4F] hover:text-white sm:mt-0">
+          <Link href="/properties" className="mt-2 self-start text-sm font-semibold text-[#1E5A4F] underline underline-offset-2 hover:text-[#F4B940] sm:mt-0">
             View all →
           </Link>
         </div>

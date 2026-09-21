@@ -88,10 +88,10 @@ export default function Testimony() {
 
         {/* Header */}
         <div className="mb-10 text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#F4B940]">
-            What our users say
-          </span>
-          <h2 className="mt-2 text-2xl font-extrabold text-[#1E5A4F] md:text-3xl">
+          <p className="text-sm font-bold uppercase tracking-widest text-[#F4B940]">
+            WHAT OUR USERS SAY
+          </p>
+          <h2 className="mt-1 text-2xl font-bold text-[#2E2E2E] md:text-3xl">
             Trusted by thousands
           </h2>
         </div>

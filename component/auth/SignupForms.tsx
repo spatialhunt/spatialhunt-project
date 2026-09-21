@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
@@ -16,8 +15,7 @@ export function SignupRolePicker() {
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-12 sm:py-16">
       <div className="mb-8 text-center">
-        <Image src="/SH-LOGO.svg" alt="SpatialHunt" width={56} height={68} className="mx-auto" unoptimized />
-        <h1 className="mt-5 text-2xl font-extrabold text-[#2E2E2E]">Join SpatialHunt</h1>
+        <h1 className="text-2xl font-extrabold text-[#2E2E2E]">Join SpatialHunt</h1>
         <p className="mt-2 text-sm text-[#777]">
           Are you looking for a home or listing one?
         </p>
@@ -123,8 +121,7 @@ export function SignupForm({ role }: { role: Exclude<Role, "ADMIN"> }) {
 
       {/* Header */}
       <div className="mb-8 text-center">
-        <Image src="/SH-LOGO.svg" alt="SpatialHunt" width={56} height={68} className="mx-auto" unoptimized />
-        <h1 className="mt-5 text-2xl font-extrabold text-[#2E2E2E]">
+        <h1 className="text-2xl font-extrabold text-[#2E2E2E]">
           Create {isTenant ? "tenant" : "landlord"} account
         </h1>
         <p className="mt-2 text-sm text-[#777]">

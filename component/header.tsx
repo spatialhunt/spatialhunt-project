@@ -21,7 +21,8 @@ export default function Header() {
     "rounded-md font-bold px-3 py-2 text-[#F4B942] underline decoration-2 underline-offset-4 transition-all duration-200";
 
   return (
-    <header className="relative z-50 mx-5 flex items-center justify-between md:mx-12 lg:mx-auto lg:w-[92%] xl:w-[90%]">
+    <header className="sticky top-0 z-50 w-full border-b border-[#EEEEEE] bg-white shadow-sm">
+      <div className="relative mx-auto flex h-[70px] w-full max-w-[1400px] items-center justify-between px-5 md:px-10 lg:px-16 xl:px-20">
 
       {/* Logo */}
       <Link href="/" className="flex items-center">
@@ -300,6 +301,7 @@ export default function Header() {
         </nav>
       )}
 
+      </div>
     </header>
   );
 }
