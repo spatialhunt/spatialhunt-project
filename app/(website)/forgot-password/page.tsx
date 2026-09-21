@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
 import { Button, Input } from "@/component/ui/Primitives";

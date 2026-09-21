@@ -29,7 +29,7 @@ const why = [
 export default function HowItWorks() {
   return (
     <section className="bg-[#1E5A4F]">
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
 
         <div className="mb-10 text-center md:text-left">
           <p className="text-sm font-bold uppercase tracking-widest text-[#F4B940]">
@@ -76,7 +76,7 @@ export default function HowItWorks() {
                 ))}
               </ul>
             </div>
-            <div className="hidden items-end lg:flex lg:w-[160px] lg:shrink-0">
+            <div className="hidden items-end lg:flex lg:w-40 lg:shrink-0">
               <img src="/house.svg" alt="house" className="h-auto w-full opacity-80" loading="lazy" />
             </div>
           </div>

@@ -51,7 +51,7 @@ const properties = [
 export default function FeatureProperties() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
         <div className="mb-8 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-xl font-bold text-[#1E5A4F] sm:text-2xl">
@@ -67,7 +67,7 @@ export default function FeatureProperties() {
           {properties.map((p) => (
             <Link key={p.title} href={p.href} className="group block">
               <article className="overflow-hidden rounded-2xl border border-[#E8E8E8] bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl">
-                <div className="relative h-[210px] w-full overflow-hidden">
+                <div className="relative h-52 w-full overflow-hidden">
                   <img
                     src={p.image}
                     alt={p.title}

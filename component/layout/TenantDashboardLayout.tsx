@@ -39,7 +39,7 @@ export default function TenantDashboardLayout({ children }: { children: ReactNod
   return (
     <div className="min-h-screen bg-white">
       <TenantHero />
-      <div className="mx-auto w-full max-w-[1400px] px-4 py-5 sm:px-5 md:px-6 lg:px-7 xl:px-8">
+      <div className="mx-auto w-full max-w-350 px-4 py-5 sm:px-5 md:px-6 lg:px-7 xl:px-8">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[200px_minmax(0,1fr)] xl:grid-cols-[210px_minmax(0,1fr)]">
           <aside className="w-full">
             <TenantSidebar />

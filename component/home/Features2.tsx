@@ -8,7 +8,7 @@ const stats = [
 export default function Features2() {
   return (
     <section className="bg-[#1E5A4F]">
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
 
           {/* Left */}
@@ -51,7 +51,7 @@ export default function Features2() {
             <img
               src="/feature2img.svg"
               alt="Verification process"
-              className="h-auto w-full max-w-[440px] lg:max-w-[520px]"
+              className="h-auto w-full max-w-110 lg:max-w-130"
               loading="lazy"
             />
           </div>

@@ -30,7 +30,7 @@ export default function Footer() {
     <footer className="bg-[#1E5A4F] text-white">
 
       {/* ── Main content ── */}
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-12 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-12 md:px-10 lg:px-16 xl:px-20">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 xl:gap-12">
 
           {/* Brand */}
@@ -179,7 +179,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="border-t border-[#F4B942]/30">
-        <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center gap-2 px-5 py-4 text-center text-xs text-white/50 md:flex-row md:justify-between md:text-left md:px-10 lg:px-16 xl:px-20">
+        <div className="mx-auto flex w-full max-w-350 flex-col items-center gap-2 px-5 py-4 text-center text-xs text-white/50 md:flex-row md:justify-between md:text-left md:px-10 lg:px-16 xl:px-20">
           <span>© 2026 SpatialHunt. All rights reserved.</span>
           <span>Made with passion for a better renting experience in Nigeria &amp; Africa.</span>
         </div>

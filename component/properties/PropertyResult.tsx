@@ -42,7 +42,7 @@ function SkeletonCard() {
   return (
     <div className="w-full overflow-hidden rounded-[10px] border border-[#EEEEEE] bg-white">
       <div className="flex flex-col sm:flex-row sm:items-stretch">
-        <div className="h-48 w-full animate-pulse bg-[#EAEAEA] sm:h-auto sm:w-[140px] md:w-[160px]" />
+        <div className="h-48 w-full animate-pulse bg-[#EAEAEA] sm:h-auto sm:w-[140px] md:w-40" />
         <div className="flex flex-1 flex-col gap-3 p-4 md:p-5">
           <div className="h-4 w-3/4 animate-pulse rounded bg-[#EAEAEA]" />
           <div className="h-3 w-1/2 animate-pulse rounded bg-[#EAEAEA]" />

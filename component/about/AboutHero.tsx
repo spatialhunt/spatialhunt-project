@@ -44,7 +44,7 @@ export default function AboutHero() {
           </h1>
 
           {/* Description */}
-          <p className="mt-4 max-w-[560px] text-[14px] leading-[21px] text-[#555555]">
+          <p className="mt-4 max-w-140 text-[14px] leading-[21px] text-[#555555]">
             SpatialHunt connects tenants and landlords on one trusted
             platform. We remove middlemen, promote transparency and make
             renting simple, secure and stress-free for everyone.
