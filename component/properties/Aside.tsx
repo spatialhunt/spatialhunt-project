@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Aside = () => {
   return (
-    <aside className="w-full xl:w-[232px] xl:shrink-0">
+    <aside className="w-full xl:w-58 xl:shrink-0">
       {/* sticky wrapper so the aside scrolls with the page but stays visible */}
       <div className="xl:sticky xl:top-4">
       {/* ================================================= */}

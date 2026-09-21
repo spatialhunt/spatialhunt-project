@@ -103,7 +103,7 @@ export default function TenantHero() {
               h-[40px]
               w-full
               min-w-0
-              max-w-[520px]
+              max-w-130
               items-center
               rounded-md
               border

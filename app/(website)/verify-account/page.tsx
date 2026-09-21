@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
 import { ApiError } from "@/lib/services/http";

@@ -27,8 +27,7 @@ export default function SalesSection() {
 
   return (
     <section className="w-full bg-[#E8E8E8] px-5 py-8 md:px-10 lg:px-16 xl:px-20">
-      <div className="mx-auto w-full max-w-[1400px]">
-
+      <div className="mx-auto w-full max-w-350">
         {/* Tab row */}
         <div className="mb-5 flex gap-3">
           {(["rent", "sale"] as const).map((t) => (

@@ -60,7 +60,7 @@ function AppShell({
   return (
     <div className="min-h-screen bg-white">
       <header className="border-b border-[#EAEAEA] bg-white">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 sm:px-6">
+        <div className="mx-auto flex max-w-350 items-center justify-between px-4 py-3 sm:px-6">
           <Link href={brandHref} className="flex items-center gap-2">
             <img src="/SH-LOGO.svg" alt="SpatialHunt" className="h-10 w-auto" />
             <div>
@@ -92,7 +92,7 @@ function AppShell({
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-[1400px] gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[230px_minmax(0,1fr)]">
+      <div className="mx-auto grid max-w-350 gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[230px_minmax(0,1fr)]">
         <aside
           className={`${mobileOpen ? "block" : "hidden"} overflow-hidden rounded-[8px] bg-[#1E5A4F] lg:block`}
         >

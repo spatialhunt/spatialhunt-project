@@ -52,7 +52,7 @@ const PropertyCard = ({
         {/* ── THUMBNAIL ─────────────────────────────────────────────────────── */}
         <Link
           href={detailHref}
-          className="relative block h-48 w-full shrink-0 overflow-hidden bg-[#F7F7F7] sm:h-auto sm:w-[140px] md:w-[160px] lg:w-[180px] xl:w-[200px]"
+          className="relative block h-48 w-full shrink-0 overflow-hidden bg-[#F7F7F7] sm:h-auto sm:w-[140px] md:w-40 lg:w-[180px] xl:w-[200px]"
           tabIndex={-1}
           aria-hidden
         >

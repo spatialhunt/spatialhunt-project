@@ -38,7 +38,7 @@ export default function ResourcesPage() {
           <h1 className="mt-3 text-[32px] font-bold text-[#2E2E2E] sm:text-[38px]">
             Guides for tenants & landlords
           </h1>
-          <p className="mt-3 max-w-[560px] text-sm text-[#555555] sm:text-base">
+          <p className="mt-3 max-w-140 text-sm text-[#555555] sm:text-base">
             Practical articles on finding a home, listing property, and paying rent securely
             on SpatialHunt.
           </p>

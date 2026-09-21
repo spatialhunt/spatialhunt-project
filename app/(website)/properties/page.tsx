@@ -39,7 +39,7 @@ function PropertiesContent() {
                On mobile → collapsible toggle inside RefineSearch itself.
                On lg+    → sticky panel, fixed width.
           ────────────────────────────────────────────────────────────────── */}
-          <div className="w-full shrink-0 lg:w-[235px] xl:w-[255px]">
+          <div className="w-full shrink-0 lg:w-59 xl:w-64">
             <RefineSearch />
           </div>
 
@@ -51,7 +51,7 @@ function PropertiesContent() {
           {/* ── aside (Why Choose + Did You Know) ─────────────────────────
                Hidden below xl to avoid crowding the results column.
           ────────────────────────────────────────────────────────────────── */}
-          <div className="hidden xl:block xl:w-[232px] xl:shrink-0">
+          <div className="hidden xl:block xl:w-58 xl:shrink-0">
             <Aside />
           </div>
 

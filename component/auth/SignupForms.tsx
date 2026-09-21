@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
@@ -13,7 +14,7 @@ import { Button, Input } from "@/component/ui/Primitives";
 ───────────────────────────────────────────── */
 export function SignupRolePicker() {
   return (
-    <div className="mx-auto w-full max-w-2xl px-4 py-12 sm:py-16">
+    <div className="w-full max-w-2xl">
       <div className="mb-8 text-center">
         <h1 className="text-2xl font-extrabold text-[#2E2E2E]">Join SpatialHunt</h1>
         <p className="mt-2 text-sm text-[#777]">
@@ -117,7 +118,7 @@ export function SignupForm({ role }: { role: Exclude<Role, "ADMIN"> }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-md px-4 py-12 sm:py-16">
+    <div className="w-full">
 
       {/* Header */}
       <div className="mb-8 text-center">
@@ -134,7 +135,7 @@ export function SignupForm({ role }: { role: Exclude<Role, "ADMIN"> }) {
       {/* Form card */}
       <form
         onSubmit={onSubmit}
-        className="space-y-4 rounded-2xl border border-[#E8E8E8] bg-[#FAFAFA] p-6 shadow-sm"
+        className="flex flex-col gap-4 rounded-2xl border border-[#E0E0E0] bg-white p-8 shadow-lg"
         noValidate
       >
         <Input
@@ -209,7 +210,7 @@ export function SignupForm({ role }: { role: Exclude<Role, "ADMIN"> }) {
           </p>
         )}
 
-        <Button type="submit" variant="amber" className="w-full" disabled={loading}>
+        <Button type="submit" variant="amber" className="h-12 w-full rounded-xl text-base font-bold" disabled={loading}>
           {loading ? "Creating account…" : "Create account"}
         </Button>
 

@@ -1,4 +1,4 @@
-
+﻿
 "use client";
 
 import React, { useState } from "react";
@@ -135,7 +135,7 @@ export default function PropertyDetailsPage() {
         className="
           mx-auto
           w-full
-          max-w-[1400px]
+          max-w-350
           px-4
           pb-10
           pt-6
@@ -343,7 +343,7 @@ export default function PropertyDetailsPage() {
                     sm:h-[300px]
                     md:h-[330px]
                     lg:h-[345px]
-                    xl:h-[380px]
+                    xl:h-95
                   "
                 >
                   <img

@@ -1,3 +1,4 @@
+﻿/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -35,8 +36,8 @@ export default function Showcase() {
   }, [next]);
 
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto flex w-full max-w-[1400px] flex-col-reverse items-center gap-8 px-5 pb-6 pt-10 md:flex-row md:gap-10 md:px-10 lg:px-16 xl:px-20">
+    <section className="w-full overflow-x-hidden bg-white">
+      <div className="mx-auto flex w-full max-w-350 flex-col-reverse items-center gap-8 px-6 pb-10 pt-12 md:flex-row md:gap-10 md:px-12 lg:px-16 xl:px-20">
 
         {/* ── LEFT: headline + CTAs ─────────────────────────────────────── */}
         <div className="flex w-full flex-col md:w-[52%]">
@@ -50,7 +51,7 @@ export default function Showcase() {
             Zero Stress.
           </h1>
 
-          <p className="mt-4 max-w-[500px] text-[0.95rem] leading-[1.75] text-[#666]">
+          <p className="mt-4 max-w-125 text-[0.95rem] leading-[1.75] text-[#666]">
             <span className="font-bold text-[#F4B940]">SpatialHunt</span> connects
             you directly with verified landlords so you can rent or list properties
             with confidence. No middlemen. No hidden fees. Just trust and
@@ -109,7 +110,7 @@ export default function Showcase() {
 
         {/* ── RIGHT: auto-sliding image carousel ────────────────────────── */}
         <div className="relative w-full overflow-hidden rounded-2xl shadow-xl md:w-[46%]">
-          <div className="relative h-[280px] w-full sm:h-[340px] md:h-[380px] lg:h-[440px]">
+          <div className="relative h-70 w-full sm:h-85 md:h-95 lg:h-110">
             {slides.map((s, i) => (
               <div
                 key={i}
@@ -124,7 +125,7 @@ export default function Showcase() {
               </div>
             ))}
 
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black/50 to-transparent" />
 
             <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
               {slides.map((_, i) => (

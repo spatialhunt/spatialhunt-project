@@ -23,7 +23,7 @@ const Page = () => {
         className="
           mx-auto
           w-full
-          max-w-[1400px]
+          max-w-350
           px-4
           py-5
           sm:px-5

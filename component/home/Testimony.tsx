@@ -84,7 +84,7 @@ export default function Testimony() {
 
   return (
     <section className="w-full bg-[#F5F5F5]">
-      <div className="mx-auto w-full max-w-[1400px] px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
 
         {/* Header */}
         <div className="mb-10 text-center">
