@@ -8,7 +8,11 @@ import type { AuthSession } from "@/lib/types";
 // Without this, getSession() would create a new object on every render,
 // triggering React's "getSnapshot should be cached" infinite loop error.
 let cachedSession: AuthSession | null = null;
-let cachedRaw: string | null = null;
+// `undefined` is the "invalidated, please re-parse" sentinel. It must be
+// distinct from every possible sessionStorage.getItem() result (string | null),
+// otherwise invalidating right as the session becomes null (e.g. on logout)
+// collides with the real null value and the stale cache gets returned.
+let cachedRaw: string | null | undefined = undefined;
 
 function getSnapshot(): AuthSession | null {
   if (typeof window === "undefined") return null;
@@ -31,8 +35,7 @@ function getServerSnapshot(): AuthSession | null {
 function subscribe(onStoreChange: () => void) {
   if (typeof window === "undefined") return () => {};
   const handler = () => {
-    // Invalidate cache so next getSnapshot call re-parses
-    cachedRaw = null;
+    cachedRaw = undefined; // Invalidate cache so next getSnapshot call re-parses
     onStoreChange();
   };
   window.addEventListener("storage", handler);
@@ -49,7 +52,7 @@ export function useAuthSession(): AuthSession | null {
 
 export function notifyAuthChanged() {
   if (typeof window !== "undefined") {
-    cachedRaw = null; // Invalidate cache before notifying
+    cachedRaw = undefined; // Invalidate cache before notifying
     window.dispatchEvent(new Event("sh-auth-changed"));
   }
 }
