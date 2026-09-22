@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 const stats = [
   { icon: "/bi_people.svg",            value: "2,000+", label: "Happy Renters" },
   { icon: "/verifyproperty.svg",       value: "500+",   label: "Verified Properties" },
@@ -8,7 +9,7 @@ const stats = [
 export default function Features2() {
   return (
     <section className="bg-[#1E5A4F]">
-      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 md:py-16 lg:px-16 lg:py-20 xl:px-20">
         <div className="flex flex-col items-center gap-10 lg:flex-row lg:gap-16">
 
           {/* Left */}

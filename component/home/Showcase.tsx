@@ -37,18 +37,14 @@ export default function Showcase() {
 
   return (
     <section className="w-full overflow-x-hidden bg-white">
-      <div className="mx-auto flex w-full max-w-350 flex-col-reverse items-center gap-8 px-6 pb-10 pt-12 md:flex-row md:gap-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="mx-auto flex w-full max-w-350 flex-col-reverse items-center gap-8 px-5 pb-14 pt-10 md:flex-row md:gap-10 md:px-10 md:pb-16 md:pt-14 lg:px-16 lg:pb-20 lg:pt-16 xl:px-20">
 
         {/* ── LEFT: headline + CTAs ─────────────────────────────────────── */}
         <div className="flex w-full flex-col md:w-[52%]">
-          <h1 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight text-[#2E2E2E] sm:text-[2.6rem] lg:text-[3.2rem]">
-            Verified Homes.
-          </h1>
-          <h1 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight text-[#2E2E2E] sm:text-[2.6rem] lg:text-[3.2rem]">
-            Direct To Landlord.
-          </h1>
-          <h1 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight text-[#F4B940] sm:text-[2.6rem] lg:text-[3.2rem]">
-            Zero Stress.
+          <h1 className="text-[2rem] font-extrabold leading-[1.15] tracking-tight sm:text-[2.6rem] lg:text-[3.2rem]">
+            <span className="block text-[#2E2E2E]">Verified Homes.</span>
+            <span className="block text-[#2E2E2E]">Direct To Landlord.</span>
+            <span className="block text-[#F4B940]">Zero Stress.</span>
           </h1>
 
           <p className="mt-4 max-w-125 text-[0.95rem] leading-[1.75] text-[#666]">
