@@ -37,9 +37,9 @@ export default function ForgotPasswordPage() {
         <h1 className="mt-5 text-2xl font-extrabold text-[#2E2E2E]">Check your email</h1>
         <p className="mt-2 text-sm leading-6 text-[#777]">
           If an account exists for <span className="font-semibold text-[#2E2E2E]">{email}</span>,
-          we've sent a password reset link. Check your inbox and spam folder.
+          we&apos;ve sent a password reset link. Check your inbox and spam folder.
         </p>
-        <p className="mt-4 text-xs text-[#aaa]">Didn't receive it? The link expires in 1 hour.</p>
+        <p className="mt-4 text-xs text-[#aaa]">Didn&apos;t receive it? The link expires in 1 hour.</p>
         <div className="mt-6 flex flex-col items-center gap-3">
           <button
             onClick={() => { setSent(false); }}
@@ -60,7 +60,7 @@ export default function ForgotPasswordPage() {
       <div className="mb-8 text-center">
         <h1 className="text-2xl font-extrabold text-[#2E2E2E]">Forgot your password?</h1>
         <p className="mt-2 text-sm text-[#777]">
-          Enter the email address on your SpatialHunt account and we'll send you a reset link.
+          Enter the email address on your SpatialHunt account and we&apos;ll send you a reset link.
         </p>
       </div>
 

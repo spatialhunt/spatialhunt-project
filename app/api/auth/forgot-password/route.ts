@@ -37,6 +37,7 @@ export async function POST(req: Request) {
     // Until the migration is run, this is a no-op — password reset will work end-to-end
     // once those fields are added via: npx prisma migrate dev
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- reset fields pending migration
       await (prisma.user as any).update({
         where: { email },
         data: {

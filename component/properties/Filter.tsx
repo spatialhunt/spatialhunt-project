@@ -14,6 +14,41 @@ import { useRouter, useSearchParams } from "next/navigation";
  * Seeding from existing URL params means navigating back to /properties
  * preserves whatever RefineSearch already set.
  */
+/* ── shared select wrapper ───────────────────────────────────────────── */
+const SelectField = ({
+  label,
+  value,
+  onChange,
+  children,
+  className = "",
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div className={`flex min-w-0 flex-col gap-1.5 ${className}`}>
+    <label className="text-xs font-semibold text-[#2E2E2E] md:text-sm">
+      {label}
+    </label>
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-10 w-full appearance-none rounded-[6px] border border-[#D9D9D9] bg-white px-3 pr-9 text-sm text-[#2E2E2E] outline-none focus-visible:ring-2 focus-visible:ring-[#1E5A4F] md:rounded-none md:border-0 md:bg-transparent md:px-0 md:pr-6"
+      >
+        {children}
+      </select>
+      <img
+        src="/dropdown.svg"
+        alt=""
+        className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 md:right-0"
+      />
+    </div>
+  </div>
+);
+
 const Filter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -66,41 +101,6 @@ const Filter = () => {
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleSearch();
   };
-
-  /* ── shared select wrapper ───────────────────────────────────────────── */
-  const SelectField = ({
-    label,
-    value,
-    onChange,
-    children,
-    className = "",
-  }: {
-    label: string;
-    value: string;
-    onChange: (v: string) => void;
-    children: React.ReactNode;
-    className?: string;
-  }) => (
-    <div className={`flex min-w-0 flex-col gap-1.5 ${className}`}>
-      <label className="text-xs font-semibold text-[#2E2E2E] md:text-sm">
-        {label}
-      </label>
-      <div className="relative">
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="h-10 w-full appearance-none rounded-[6px] border border-[#D9D9D9] bg-white px-3 pr-9 text-sm text-[#2E2E2E] outline-none focus-visible:ring-2 focus-visible:ring-[#1E5A4F] md:rounded-none md:border-0 md:bg-transparent md:px-0 md:pr-6"
-        >
-          {children}
-        </select>
-        <img
-          src="/dropdown.svg"
-          alt=""
-          className="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 md:right-0"
-        />
-      </div>
-    </div>
-  );
 
   return (
     <section className="w-full px-4 pb-5 pt-2 sm:px-6 md:px-8 lg:px-10 xl:px-12">

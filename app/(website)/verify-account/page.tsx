@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { authService } from "@/lib/services/auth.service";
@@ -95,7 +94,7 @@ export default function VerifyAccountPage() {
         </Button>
 
         <p className="text-center text-sm text-[#777]">
-          Didn't receive a code?{" "}
+          Didn&apos;t receive a code?{" "}
           <button type="button" className="font-bold text-[#1E5A4F] hover:underline">
             Resend
           </button>

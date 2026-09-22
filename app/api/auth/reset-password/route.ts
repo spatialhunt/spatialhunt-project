@@ -26,8 +26,10 @@ export async function POST(req: Request) {
     // Find user by token
     // NOTE: Requires passwordResetToken + passwordResetExpires fields on the User model.
     // Run: npx prisma migrate dev  to add these fields after updating the schema.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- reset fields pending migration
     let user: any;
     try {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- reset fields pending migration
       user = await (prisma.user as any).findFirst({
         where: {
           passwordResetToken: token,
@@ -51,6 +53,7 @@ export async function POST(req: Request) {
 
     const passwordHash = await bcrypt.hash(password, 12);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- reset fields pending migration
     await (prisma.user as any).update({
       where: { id: user.id },
       data: {

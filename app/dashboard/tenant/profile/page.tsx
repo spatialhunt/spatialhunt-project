@@ -67,7 +67,7 @@ export default function ProfilePage() {
 
       if (!res.ok) {
         const json = await res.json().catch(() => ({}));
-        throw new ApiError(res.status, json.message ?? "Update failed.");
+        throw new ApiError(json.message ?? "Update failed.", res.status, json);
       }
 
       setSaveState("saved");
