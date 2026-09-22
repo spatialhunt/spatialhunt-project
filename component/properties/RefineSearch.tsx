@@ -12,6 +12,41 @@ import { useRouter, useSearchParams } from "next/navigation";
  * Seeds its state from the current URL so the panel reflects active filters
  * even after a page refresh or back-navigation.
  */
+/* ── shared field components ─────────────────────────────────────────── */
+const FieldLabel = ({ children }: { children: React.ReactNode }) => (
+  <span className="text-sm font-medium text-[#2E2E2E]">{children}</span>
+);
+
+const DropdownField = ({
+  label,
+  value,
+  onChange,
+  children,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  children: React.ReactNode;
+}) => (
+  <div className="flex flex-col gap-2">
+    <FieldLabel>{label}</FieldLabel>
+    <div className="relative">
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="h-10 w-full appearance-none rounded-[6px] border border-[#D9D9D9] bg-white px-3 pr-9 text-sm text-[#2E2E2E] outline-none focus-visible:ring-2 focus-visible:ring-[#1E5A4F]"
+      >
+        {children}
+      </select>
+      <img
+        src="/dropdown.svg"
+        alt=""
+        className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2"
+      />
+    </div>
+  </div>
+);
+
 const RefineSearch = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -97,43 +132,8 @@ const RefineSearch = () => {
     setOpen(false);
   };
 
-  /* ── shared field components ─────────────────────────────────────────── */
-  const FieldLabel = ({ children }: { children: React.ReactNode }) => (
-    <span className="text-sm font-medium text-[#2E2E2E]">{children}</span>
-  );
-
-  const DropdownField = ({
-    label,
-    value,
-    onChange,
-    children,
-  }: {
-    label: string;
-    value: string;
-    onChange: (v: string) => void;
-    children: React.ReactNode;
-  }) => (
-    <div className="flex flex-col gap-2">
-      <FieldLabel>{label}</FieldLabel>
-      <div className="relative">
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="h-10 w-full appearance-none rounded-[6px] border border-[#D9D9D9] bg-white px-3 pr-9 text-sm text-[#2E2E2E] outline-none focus-visible:ring-2 focus-visible:ring-[#1E5A4F]"
-        >
-          {children}
-        </select>
-        <img
-          src="/dropdown.svg"
-          alt=""
-          className="pointer-events-none absolute right-2.5 top-1/2 h-4 w-4 -translate-y-1/2"
-        />
-      </div>
-    </div>
-  );
-
   /* ── panel content (shared between drawer + sidebar) ─────────────────── */
-  const PanelContent = () => (
+  const panelContent = (
     <>
       {/* title row */}
       <div className="mb-5 flex items-center justify-between gap-3">
@@ -294,7 +294,7 @@ const RefineSearch = () => {
           }`}
         >
           <div className="mt-2 rounded-[10px] border border-[#D9D9D9] bg-white p-4 sm:p-5">
-            <PanelContent />
+            {panelContent}
           </div>
         </div>
       </div>
@@ -302,7 +302,7 @@ const RefineSearch = () => {
       {/* ── lg+: always-visible sticky sidebar ────────────────────────── */}
       <aside className="hidden lg:block">
         <div className="sticky top-4 w-full rounded-[10px] border border-[#D9D9D9] bg-white p-4 xl:p-5">
-          <PanelContent />
+          {panelContent}
         </div>
       </aside>
     </>

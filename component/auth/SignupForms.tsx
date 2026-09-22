@@ -30,7 +30,7 @@ export function SignupRolePicker() {
           <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#1E5A4F]/10 transition group-hover:bg-[#1E5A4F]/20">
             <Image src="/akar-icons_person-add.svg" alt="" width={24} height={24} unoptimized />
           </div>
-          <p className="text-lg font-extrabold text-[#1E5A4F]">I'm a tenant</p>
+          <p className="text-lg font-extrabold text-[#1E5A4F]">I&apos;m a tenant</p>
           <p className="mt-2 text-sm leading-6 text-[#777]">
             Search verified homes, message landlords directly, and schedule inspections — no agents, no fees.
           </p>
@@ -43,7 +43,7 @@ export function SignupRolePicker() {
           <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#F4B940]/15 transition group-hover:bg-[#F4B940]/25">
             <Image src="/ci_house-01.svg" alt="" width={24} height={24} unoptimized />
           </div>
-          <p className="text-lg font-extrabold text-[#1E5A4F]">I'm a landlord</p>
+          <p className="text-lg font-extrabold text-[#1E5A4F]">I&apos;m a landlord</p>
           <p className="mt-2 text-sm leading-6 text-[#777]">
             Get verified, list your property, and connect directly with serious tenants. No commission to agents.
           </p>
@@ -225,7 +225,7 @@ export function SignupForm({ role }: { role: Exclude<Role, "ADMIN"> }) {
       {/* PRD note: landlords go through identity verification after account creation */}
       {!isTenant && (
         <p className="mt-4 text-center text-xs text-[#999]">
-          After creating your account, you'll be guided through identity verification before
+          After creating your account, you&apos;ll be guided through identity verification before
           your first listing goes live.
         </p>
       )}

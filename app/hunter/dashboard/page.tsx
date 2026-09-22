@@ -119,24 +119,18 @@ function EarningsBar({ label, amount, max }: { label: string; amount: number; ma
 // ─── page ─────────────────────────────────────────────────────────────────────
 export default function HunterDashboardPage() {
   const session = useAuthSession();
-  const [loading, setLoading] = useState(true);
-  const [usingMock, setUsingMock] = useState(false);
-  const [matches, setMatches] = useState<HunterMatch[]>([]);
-  const [leads, setLeads] = useState<HunterLead[]>([]);
+  // Hunter service APIs are not yet wired — initialise from mock data.
+  // TODO: replace with a service call once /api/hunter/* endpoints exist.
+  const [loading] = useState(false);
+  const [usingMock] = useState(true);
+  const [matches] = useState<HunterMatch[]>(MOCK_HUNTER_MATCHES);
+  const [leads] = useState<HunterLead[]>(MOCK_HUNTER_LEADS);
 
   // live verified listings to browse / match
   const [verifiedListings,        setVerifiedListings]        = useState<Property[]>([]);
   const [listingsLoading,         setListingsLoading]         = useState(true);
 
   const firstName = session?.fullName?.split(" ")[0] ?? "Hunter";
-
-  useEffect(() => {
-    // Hunter service APIs are not yet wired — use mock data
-    setMatches(MOCK_HUNTER_MATCHES);
-    setLeads(MOCK_HUNTER_LEADS);
-    setUsingMock(true);
-    setLoading(false);
-  }, []);
 
   // fetch live verified listings for the "Available Verified Listings" grid
   useEffect(() => {
