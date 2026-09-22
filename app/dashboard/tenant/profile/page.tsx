@@ -91,7 +91,7 @@ export default function ProfilePage() {
         {!loaded ? (
           <div className="space-y-3">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-10 animate-pulse rounded-lg bg-[#F0F0F0]" />
+              <div key={i.toString()} className="h-10 animate-pulse rounded-lg bg-[#F0F0F0]" />
             ))}
           </div>
         ) : (
