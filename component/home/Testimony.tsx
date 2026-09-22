@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
@@ -48,7 +49,7 @@ function Card({ t, active }: { t: (typeof testimonials)[0]; active?: boolean }) 
       }`}
     >
       <StarRow count={t.stars} />
-      <p className="mt-4 flex-1 text-sm leading-7 text-[#555]">"{t.text}"</p>
+      <p className="mt-4 flex-1 text-sm leading-7 text-[#555]">&quot;{t.text}&quot;</p>
       <div className="mt-5 flex items-center gap-3 border-t border-[#F5F5F5] pt-4">
         <img
           src={t.avatar}
@@ -76,7 +77,6 @@ export default function Testimony() {
 
   const prev = () => setActive((a) => (a - 1 + testimonials.length) % testimonials.length);
 
-  // Auto-advance every 5 s
   useEffect(() => {
     const id = setInterval(next, 5000);
     return () => clearInterval(id);
@@ -84,7 +84,7 @@ export default function Testimony() {
 
   return (
     <section className="w-full bg-[#F5F5F5]">
-      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 md:py-16 lg:px-16 lg:py-20 xl:px-20">
 
         {/* Header */}
         <div className="mb-10 text-center">
@@ -106,7 +106,6 @@ export default function Testimony() {
         {/* Mobile: single auto-advancing card */}
         <div className="md:hidden">
           <Card t={testimonials[active]} active />
-          {/* Controls */}
           <div className="mt-6 flex items-center justify-center gap-4">
             <button
               onClick={prev}

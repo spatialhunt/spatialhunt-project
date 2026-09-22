@@ -9,7 +9,7 @@ const benefits = [
 export default function LandLord() {
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 lg:px-16 xl:px-20">
+      <div className="mx-auto w-full max-w-350 px-5 py-14 md:px-10 md:py-16 lg:px-16 lg:py-20 xl:px-20">
 
         {/* Section label */}
         <div className="mb-8 text-left">
