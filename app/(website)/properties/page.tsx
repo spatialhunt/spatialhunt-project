@@ -1,10 +1,48 @@
 import React, { Suspense } from "react";
+import type { Metadata } from "next";
 import Hero from "@/component/properties/Hero";
 import Filter from "@/component/properties/Filter";
 import AllSearch from "@/component/properties/AllSearch";
 import RefineSearch from "@/component/properties/RefineSearch";
 import PropertyResults from "@/component/properties/PropertyResult";
 import Aside from "@/component/properties/Aside";
+
+export const metadata: Metadata = {
+  title: "Properties for Rent in Nigeria",
+  description:
+    "Browse verified houses, apartments, and rental properties in Nigeria on SpatialHunt.",
+  keywords: [
+    "properties for rent in Nigeria",
+    "houses for rent in Nigeria",
+    "apartments in Nigeria",
+    "verified rental listings",
+    "SpatialHunt properties",
+  ],
+  openGraph: {
+    title: "Properties for Rent in Nigeria",
+    description:
+      "Browse verified houses, apartments, and rental properties in Nigeria on SpatialHunt.",
+    url: "http://thespatialhunt.com/properties",
+    siteName: "SpatialHunt",
+    images: [
+      {
+        url: "/property-one.jpg",
+        width: 1200,
+        height: 630,
+        alt: "SpatialHunt Properties",
+      },
+    ],
+    locale: "en_NG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Properties for Rent in Nigeria",
+    description:
+      "Browse verified houses, apartments, and rental properties in Nigeria on SpatialHunt.",
+    images: ["/property-one.jpg"],
+  },
+};
 
 /**
  * /properties — public listing search page.
