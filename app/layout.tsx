@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "SpatialHunt",
     images: [
       {
-        url: "/property-one.jpg",
+        url: "/property-one.svg",
         width: 1200,
         height: 630,
         alt: "SpatialHunt",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "SpatialHunt | Find Your Perfect Property",
     description:
       "Find verified properties and connect directly with landlords on SpatialHunt.",
-    images: ["/property-one.jpg"],
+    images: ["/property-one.svg"],
   },
 };
 

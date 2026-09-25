@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "SpatialHunt",
     images: [
       {
-        url: "/property-one.jpg",
+        url: "/property-one.svg",
         width: 1200,
         height: 630,
         alt: "SpatialHunt Properties",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Properties for Rent in Nigeria",
     description:
       "Browse verified houses, apartments, and rental properties in Nigeria on SpatialHunt.",
-    images: ["/property-one.jpg"],
+    images: ["/property-one.svg"],
   },
 };
 
