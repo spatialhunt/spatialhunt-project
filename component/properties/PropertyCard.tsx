@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -52,7 +53,7 @@ const PropertyCard = ({
         {/* ── THUMBNAIL ─────────────────────────────────────────────────────── */}
         <Link
           href={detailHref}
-          className="relative block h-48 w-full shrink-0 overflow-hidden bg-[#F7F7F7] sm:h-auto sm:w-[140px] md:w-40 lg:w-[180px] xl:w-[200px]"
+          className="relative block h-48 w-full shrink-0 overflow-hidden bg-[#F7F7F7] sm:h-auto sm:w-35 md:w-40 lg:w-45 xl:w-50"
           tabIndex={-1}
           aria-hidden
         >
@@ -63,7 +64,7 @@ const PropertyCard = ({
           />
           {/* verified badge overlay on mobile */}
           {verified && (
-            <span className="absolute left-2.5 top-2.5 inline-flex items-center gap-1 rounded-[6px] bg-[#117E2526] px-2 py-1 text-[10px] font-semibold text-[#117E25] backdrop-blur-sm sm:hidden">
+            <span className="absolute left-2.5 top-2.5 inline-flex items-center gap-1 rounded-md bg-[#117E2526] px-2 py-1 text-[10px] font-semibold text-[#117E25] backdrop-blur-sm sm:hidden">
               <img src="/verify.svg" alt="" className="h-3 w-3" />
               Verified
             </span>
@@ -91,18 +92,18 @@ const PropertyCard = ({
 
           {/* ── features row ────────────────────────────────────────────────── */}
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-            <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
-              <img src="/Beds.svg" alt="Beds" className="h-4 w-4 shrink-0" />
-              {beds} {Number(beds) === 1 ? "Bed" : "Beds"}
-            </span>
-            <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
-              <img src="/bathroom.svg" alt="Bathrooms" className="h-4 w-4 shrink-0" />
-              {bathrooms} {Number(bathrooms) === 1 ? "Bath" : "Baths"}
-            </span>
-            <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
-              <img src="/Parking.svg" alt="Parking" className="h-4 w-4 shrink-0" />
-              {parking} Parking
-            </span>
+             <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
+              <img src="/beds.svg" alt="Beds" className="h-4 w-4 shrink-0" />
+    {beds} {Number(beds) === 1 ? "Bed" : "Beds"}
+  </span>
+  <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
+    <img src="/bathroom.svg" alt="Bathrooms" className="h-4 w-4 shrink-0" />
+    {bathrooms} {Number(bathrooms) === 1 ? "Bath" : "Baths"}
+  </span>
+             <span className="inline-flex items-center gap-1 text-[11px] text-[#555555] sm:text-xs lg:text-[13px]">
+               <img src="/parking.svg" alt="Parking" className="h-4 w-4 shrink-0" />
+    {parking} Parking
+  </span>
           </div>
 
           {/* ── description ─────────────────────────────────────────────────── */}
@@ -119,7 +120,7 @@ const PropertyCard = ({
             <div className="flex items-center gap-2">
               {/* verified badge — desktop only (mobile uses overlay above) */}
               {verified && (
-                <span className="hidden items-center gap-1 rounded-[6px] bg-[#117E2526] px-2.5 py-1.5 text-[10px] font-semibold text-[#117E25] sm:inline-flex md:text-[11px] lg:text-xs">
+                <span className="hidden items-center gap-1 rounded-md bg-[#117E2526] px-2.5 py-1.5 text-[10px] font-semibold text-[#117E25] sm:inline-flex md:text-[11px] lg:text-xs">
                   <img src="/verify.svg" alt="" className="h-3 w-3 md:h-3.5 md:w-3.5" />
                   Verified
                 </span>

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import React from "react";
@@ -420,7 +421,7 @@ const Aside = () => {
             w-full
             items-center
             justify-center
-            rounded-[6px]
+            rounded-md
             bg-[#1E5A4F]
             px-3
             py-2.5

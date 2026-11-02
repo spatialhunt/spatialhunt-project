@@ -36,8 +36,9 @@ function getPool(): pg.Pool {
       database: parsed.pathname.replace(/^\//, "") || "postgres",
       ssl:      { rejectUnauthorized: false },
       // PgBouncer in transaction mode doesn't support prepared statements
-      max:              10,
-      idleTimeoutMillis: 30_000,
+      max:               10,
+      min:               1,        // keep at least one connection warm at all times
+      idleTimeoutMillis: 300_000,  // 5 min — avoid paying handshake cost between normal clicks
     });
   } else {
     // Direct connection (local dev or non-Supabase)
@@ -47,6 +48,9 @@ function getPool(): pg.Pool {
         process.env.NODE_ENV === "production"
           ? { rejectUnauthorized: false }
           : false,
+      max:               10,
+      min:               1,
+      idleTimeoutMillis: 300_000,
     });
   }
 

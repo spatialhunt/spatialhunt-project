@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import PropertyCard from "@/component/properties/PropertyCard";
 import { propertyService } from "@/lib/services/property.service";
@@ -21,7 +23,7 @@ function formatPeriod(p?: string | null) {
 }
 
 function propertyToCardProps(p: Property) {
-  const image = p.photos?.[0]?.url ?? "/property1.svg";
+  const image = p.photos?.[0]?.url ?? "/property-one.svg";
   return {
     id: p.id,
     image,
@@ -42,7 +44,7 @@ function SkeletonCard() {
   return (
     <div className="w-full overflow-hidden rounded-[10px] border border-[#EEEEEE] bg-white">
       <div className="flex flex-col sm:flex-row sm:items-stretch">
-        <div className="h-48 w-full animate-pulse bg-[#EAEAEA] sm:h-auto sm:w-[140px] md:w-40" />
+        <div className="h-48 w-full animate-pulse bg-[#EAEAEA] sm:h-auto sm:w-35 md:w-40" />
         <div className="flex flex-1 flex-col gap-3 p-4 md:p-5">
           <div className="h-4 w-3/4 animate-pulse rounded bg-[#EAEAEA]" />
           <div className="h-3 w-1/2 animate-pulse rounded bg-[#EAEAEA]" />
@@ -99,9 +101,6 @@ const PropertyResults = () => {
   const [sortKey, setSortKey] = useState<SortKey>("newest");
   const [page, setPage] = useState(1);
 
-  // Track the last fetch params so we don't double-fetch on same values
-  const lastFetchRef = useRef<string>("");
-
   // ── derive API filter params from URL ──────────────────────────────────────
   const apiFilters = useMemo(() => {
     const location = searchParams.get("location") ?? "";
@@ -124,10 +123,15 @@ const PropertyResults = () => {
   }, [searchParams]);
 
   // ── fetch whenever URL filters change ─────────────────────────────────────
+  // NOTE: no lastFetchRef guard here — the [fetchKey] dependency array already
+  // ensures this only reruns when filters actually change. A ref-based guard
+  // on top of that breaks React Strict Mode's mount→cleanup→remount cycle in
+  // dev: the first run's cleanup sets `cancelled = true`, then the ref guard
+  // blocks the second run from starting a replacement fetch, so the cancelled
+  // fetch's result gets discarded and loading never clears. Removing the ref
+  // fixes both issues without reintroducing double-fetching.
   const fetchKey = JSON.stringify(apiFilters);
   useEffect(() => {
-    if (lastFetchRef.current === fetchKey) return;
-    lastFetchRef.current = fetchKey;
     setPage(1);
 
     let cancelled = false;
@@ -232,7 +236,7 @@ const PropertyResults = () => {
               </span>{" "}
               {sorted.length === 1 ? "property" : "properties"}
               {usingMock && (
-                <span className="ml-2 rounded-[4px] bg-[#FFF6D9] px-1.5 py-0.5 text-[10px] font-semibold text-[#C99A20]">
+                <span className="ml-2 rounded-sm bg-[#FFF6D9] px-1.5 py-0.5 text-[10px] font-semibold text-[#C99A20]">
                   Demo data
                 </span>
               )}
@@ -288,7 +292,7 @@ const PropertyResults = () => {
               <button
                 type="button"
                 onClick={() => setPage((p) => p + 1)}
-                className="rounded-[8px] border border-[#1E5A4F] px-6 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:bg-[#1E5A4F] hover:text-white focus-visible:ring-2 focus-visible:ring-[#1E5A4F]"
+                className="rounded-lg border border-[#1E5A4F] px-6 py-2.5 text-sm font-medium text-[#1E5A4F] transition hover:bg-[#1E5A4F] hover:text-white focus-visible:ring-2 focus-visible:ring-[#1E5A4F]"
               >
                 Load more ({sorted.length - paginated.length} remaining)
               </button>
@@ -299,7 +303,7 @@ const PropertyResults = () => {
 
       {/* ── empty state ───────────────────────────────────────────────────── */}
       {!loading && sorted.length === 0 && (
-        <div className="flex min-h-[240px] flex-col items-center justify-center rounded-[10px] border border-dashed border-[#D9D9D9] bg-[#FAFAF8] px-6 py-12 text-center">
+        <div className="flex min-h-60 flex-col items-center justify-center rounded-[10px] border border-dashed border-[#D9D9D9] bg-[#FAFAF8] px-6 py-12 text-center">
           <img src="/location.svg" alt="" className="mb-4 h-10 w-10 opacity-30" />
           <h2 className="text-base font-semibold text-[#2E2E2E]">
             No properties found
