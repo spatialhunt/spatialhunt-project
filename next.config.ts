@@ -2,22 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    // Skip all image optimization — images are large SVGs served from /public.
-    // next/image with unoptimized still reads file metadata synchronously which
-    // blocks Turbopack compilation when images are multi-MB.
+    // All images are served from /public as plain SVGs — no optimization needed.
     unoptimized: true,
-    // Silence the "hostname not configured" warnings for any external images
-    remotePatterns: [],
   },
-  // Prevent webpack/turbopack from trying to parse binary-encoded SVG assets
-  // by treating them as static files rather than modules.
-  turbopack: {
-    rules: {
-      // Large SVGs in public are referenced by path string, not imported —
-      // no rule needed, this block is here for future asset module config.
-    },
-  },
-  // Reduce logging noise in development
+
+  // Reduce console noise from fetch logging
   logging: {
     fetches: {
       fullUrl: false,

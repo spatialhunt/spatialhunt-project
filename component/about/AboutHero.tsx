@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const features = [
   {
-    icon: "/vector 1.svg",
+    icon: "/vector1.svg",
     title: "Verified Properties",
     subtitle: "and Landlords",
   },

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import NavigationProgress from "@/component/shared/NavigationProgress";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -52,9 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${manrope.className} min-h-full`}>
-        
+        {/* Amber progress bar shown on every page transition */}
+        <NavigationProgress />
         {children}
-        
       </body>
     </html>
   );

@@ -42,7 +42,7 @@ export default function MissionVisionValues() {
         <div className="flex flex-1 items-center gap-5 border-b border-[#D9DEDC] py-6 md:border-b-0 md:border-r md:px-8 md:py-0">
           <div className="shrink-0">
             <Image
-              src="/vectorT.svg"
+              src="/vector-vision.svg"
               alt="Our Vision"
               width={58}
               height={58}
@@ -66,7 +66,7 @@ export default function MissionVisionValues() {
         <div className="flex flex-1 items-center gap-5 pt-6 md:pl-8 md:pt-0">
           <div className="shrink-0">
             <Image
-              src="/vector (1).svg"
+              src="/vector-value.svg"
               alt="Our Values"
               width={58}
               height={58}
